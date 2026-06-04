@@ -1,146 +1,337 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agro Forte, Futuro Sustentável</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Agro Forte, Futuro Sustentável</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
 </head>
 <body>
 
-    <!-- HERO -->
-    <header class="hero">
-        <div class="overlay">
-            <h1>Agro Forte, Futuro Sustentável</h1>
-            <p>Como os drones ajudam a produzir mais e preservar o meio ambiente.</p>
+<!-- MENU -->
 
-            <a href="#drones" class="btn">
-                Saiba Mais
-            </a>
-        </div>
-    </header>
+<header class="header">
 
+    <div class="logo">
+        🌱 Agro Forte
+    </div>
 
-    <!-- O QUE SÃO DRONES -->
-    <section id="drones" class="section">
-        <h2>O Que São Drones Agrícolas?</h2>
+    <nav>
+        <ul>
+            <li><a href="#inicio">Início</a></li>
+            <li><a href="#sobre">Drones</a></li>
+            <li><a href="#beneficios">Benefícios</a></li>
+            <li><a href="#impacto">Impacto</a></li>
+            <li><a href="#simulador">Simulador</a></li>
+            <li><a href="#quiz">Quiz</a></li>
+        </ul>
+    </nav>
 
-        <div class="content">
-            <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=800"
-                alt="Drone Agrícola">
+</header>
 
-            <p>
-                Os drones agrícolas são aeronaves não tripuladas utilizadas
-                para monitorar plantações, identificar problemas nas lavouras
-                e auxiliar na aplicação precisa de produtos agrícolas.
-                Essa tecnologia ajuda os produtores a economizar recursos e
-                proteger o meio ambiente.
-            </p>
-        </div>
-    </section>
+<!-- HERO -->
 
-    <!-- BENEFÍCIOS -->
-    <section class="section benefits">
-        <h2>Benefícios dos Drones</h2>
+<section class="hero" id="inicio">
 
-        <div class="cards">
+    <div class="hero-content">
 
-            <div class="card">
-                <h3>🌱 Monitoramento</h3>
-                <p>
-                    Acompanham o desenvolvimento das plantações em tempo real.
-                </p>
-            </div>
+        <span class="tag">
+            AGRINHO 2026
+        </span>
 
-            <div class="card">
-                <h3>💧 Economia de Água</h3>
-                <p>
-                    Permitem identificar exatamente onde é necessário irrigar.
-                </p>
-            </div>
-
-            <div class="card">
-                <h3>🌎 Menor Impacto Ambiental</h3>
-                <p>
-                    Reduzem desperdícios e aplicações desnecessárias.
-                </p>
-            </div>
-
-            <div class="card">
-                <h3>🚜 Maior Produtividade</h3>
-                <p>
-                    Ajudam o produtor a tomar decisões mais rápidas.
-                </p>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- SIMULADOR -->
-    <section class="section simulator">
-        <h2>Simulador de Economia</h2>
-
-        <p>Digite a quantidade de hectares:</p>
-
-        <input type="number" id="hectares" placeholder="Ex: 100">
-
-        <button id="calcBtn">
-            Calcular
-        </button>
-
-        <p id="resultado"></p>
-    </section>
-
-    <!-- QUIZ -->
-    <section class="section quiz">
-        <h2>Quiz Interativo</h2>
+        <h1>
+            Agro Forte,<br>
+            Futuro Sustentável
+        </h1>
 
         <p>
-            Qual tecnologia ajuda a reduzir o desperdício de defensivos agrícolas?
+            Como os drones agrícolas ajudam a aumentar a produtividade,
+            economizar recursos naturais e proteger o meio ambiente.
         </p>
 
-        <div class="quiz-buttons">
-            <button onclick="verificarResposta(false)">
-                Trator antigo
-            </button>
+        <a href="#sobre" class="btn">
+            Saiba Mais
+        </a>
 
-            <button onclick="verificarResposta(true)">
-                Drone agrícola
-            </button>
+    </div>
 
-            <button onclick="verificarResposta(false)">
-                Arado manual
-            </button>
+</section>
+
+<!-- SOBRE -->
+
+<section class="section reveal" id="sobre">
+
+    <h2>O Que São Drones Agrícolas?</h2>
+
+    <div class="sobre-container">
+
+        <div class="sobre-img">
+
+            <img
+            src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=1200"
+            alt="Drone Agrícola">
+
         </div>
 
-        <p id="quizResultado"></p>
-    </section>
+        <div class="sobre-texto">
 
-    <!-- CURIOSIDADES -->
-    <section class="section curiosidades">
-        <h2>Curiosidades</h2>
-
-        <div class="curiosity-box">
-            <p id="curiosidade">
-                Clique no botão para descobrir uma curiosidade.
+            <p>
+                Os drones agrícolas são aeronaves inteligentes utilizadas para
+                monitorar lavouras, identificar problemas, acompanhar o
+                crescimento das plantações e auxiliar na aplicação precisa de
+                insumos.
             </p>
 
-            <button id="curiosidadeBtn">
-                Mostrar outra curiosidade
-            </button>
+            <p>
+                Com essa tecnologia, os produtores conseguem reduzir
+                desperdícios, economizar água e aumentar a produtividade,
+                contribuindo para uma agricultura mais sustentável.
+            </p>
+
         </div>
-    </section>
 
-    <!-- CRÉDITOS -->
-    <footer>
-        <h3>Créditos</h3>
+    </div>
 
-        <p><strong>Nome do estudante:</strong> Seu Nome</p>
-        <p>Projeto Agrinho 2026</p>
-        <p>Tecnologias utilizadas: HTML, CSS e JavaScript</p>
-    </footer>
+</section>
 
-    <script src="script.js"></script>
+<!-- BENEFICIOS -->
+
+<section class="section reveal" id="beneficios">
+
+    <h2>Benefícios dos Drones</h2>
+
+    <div class="cards">
+
+        <div class="card">
+
+            <div class="icon">🌱</div>
+
+            <h3>Monitoramento</h3>
+
+            <p>
+                Acompanhamento detalhado das plantações em tempo real.
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <div class="icon">💧</div>
+
+            <h3>Economia de Água</h3>
+
+            <p>
+                Irrigação mais eficiente e redução do desperdício.
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <div class="icon">🌎</div>
+
+            <h3>Menor Impacto</h3>
+
+            <p>
+                Aplicações mais precisas reduzem danos ambientais.
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <div class="icon">🚜</div>
+
+            <h3>Produtividade</h3>
+
+            <p>
+                Decisões rápidas e aumento da eficiência no campo.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- IMPACTO -->
+
+<section class="impacto reveal" id="impacto">
+
+    <h2>Impacto da Tecnologia no Campo</h2>
+
+    <div class="numeros">
+
+        <div class="numero-box">
+
+            <h3 class="contador" data-target="80">
+                0
+            </h3>
+
+            <p>
+                % de redução de desperdícios
+            </p>
+
+        </div>
+
+        <div class="numero-box">
+
+            <h3 class="contador" data-target="50">
+                0
+            </h3>
+
+            <p>
+                % de economia de água
+            </p>
+
+        </div>
+
+        <div class="numero-box">
+
+            <h3 class="contador" data-target="100">
+                0
+            </h3>
+
+            <p>
+                % mais rapidez no monitoramento
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- GALERIA -->
+
+<section class="section reveal">
+
+    <h2>Drones em Ação</h2>
+
+    <div class="galeria">
+
+        <img src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?w=1200">
+
+        <img src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?w=1200">
+
+        <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=1200">
+
+    </div>
+
+</section>
+
+<!-- SIMULADOR -->
+
+<section class="simulador reveal" id="simulador">
+
+    <h2>Simulador de Economia</h2>
+
+    <p>
+        Digite a quantidade de hectares da propriedade:
+    </p>
+
+    <input
+    type="number"
+    id="hectares"
+    placeholder="Digite os hectares">
+
+    <button id="calcular">
+        Calcular Economia
+    </button>
+
+    <div id="resultado"></div>
+
+</section>
+
+<!-- QUIZ -->
+
+<section class="quiz reveal" id="quiz">
+
+    <h2>Quiz Interativo</h2>
+
+    <p>
+        Qual tecnologia ajuda a reduzir o desperdício de defensivos agrícolas?
+    </p>
+
+    <div class="quiz-buttons">
+
+        <button onclick="responder(false)">
+            Trator antigo
+        </button>
+
+        <button onclick="responder(true)">
+            Drone agrícola
+        </button>
+
+        <button onclick="responder(false)">
+            Arado manual
+        </button>
+
+    </div>
+
+    <div id="quizResultado"></div>
+
+</section>
+
+<!-- CURIOSIDADES -->
+
+<section class="curiosidades reveal">
+
+    <h2>Curiosidades</h2>
+
+    <div class="curiosidade-box">
+
+        <p id="curiosidadeTexto">
+
+            Clique no botão abaixo para descobrir uma curiosidade sobre drones agrícolas.
+
+        </p>
+
+        <button id="novaCuriosidade">
+
+            Mostrar Outra Curiosidade
+
+        </button>
+
+    </div>
+
+</section>
+
+<!-- RODAPÉ -->
+
+<footer>
+
+    <h3>Agro Forte, Futuro Sustentável</h3>
+
+    <p>
+        Projeto desenvolvido para o Agrinho 2026.
+    </p>
+
+    <p>
+        Tecnologias utilizadas: HTML, CSS e JavaScript.
+    </p>
+
+    <p>
+        Desenvolvido por: SEU NOME
+    </p>
+
+</footer>
+
+<!-- BOTÃO TOPO -->
+
+<button id="topo">
+↑
+</button>
+
+<script src="script.js"></script>
 
 </body>
 </html>
