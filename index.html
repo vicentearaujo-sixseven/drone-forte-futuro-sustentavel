@@ -1,1 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agro Forte, Futuro Sustentável</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
+    <!-- HERO -->
+    <header class="hero">
+        <div class="overlay">
+            <h1>Agro Forte, Futuro Sustentável</h1>
+            <p>Como os drones ajudam a produzir mais e preservar o meio ambiente.</p>
+
+            <a href="#drones" class="btn">
+                Saiba Mais
+            </a>
+        </div>
+    </header>
+
+    <!-- O QUE SÃO DRONES -->
+    <section id="drones" class="section">
+        <h2>O Que São Drones Agrícolas?</h2>
+
+        <div class="content">
+            <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=800"
+                alt="Drone Agrícola">
+
+            <p>
+                Os drones agrícolas são aeronaves não tripuladas utilizadas
+                para monitorar plantações, identificar problemas nas lavouras
+                e auxiliar na aplicação precisa de produtos agrícolas.
+                Essa tecnologia ajuda os produtores a economizar recursos e
+                proteger o meio ambiente.
+            </p>
+        </div>
+    </section>
+
+    <!-- BENEFÍCIOS -->
+    <section class="section benefits">
+        <h2>Benefícios dos Drones</h2>
+
+        <div class="cards">
+
+            <div class="card">
+                <h3>🌱 Monitoramento</h3>
+                <p>
+                    Acompanham o desenvolvimento das plantações em tempo real.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>💧 Economia de Água</h3>
+                <p>
+                    Permitem identificar exatamente onde é necessário irrigar.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>🌎 Menor Impacto Ambiental</h3>
+                <p>
+                    Reduzem desperdícios e aplicações desnecessárias.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>🚜 Maior Produtividade</h3>
+                <p>
+                    Ajudam o produtor a tomar decisões mais rápidas.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SIMULADOR -->
+    <section class="section simulator">
+        <h2>Simulador de Economia</h2>
+
+        <p>Digite a quantidade de hectares:</p>
+
+        <input type="number" id="hectares" placeholder="Ex: 100">
+
+        <button id="calcBtn">
+            Calcular
+        </button>
+
+        <p id="resultado"></p>
+    </section>
+
+    <!-- QUIZ -->
+    <section class="section quiz">
+        <h2>Quiz Interativo</h2>
+
+        <p>
+            Qual tecnologia ajuda a reduzir o desperdício de defensivos agrícolas?
+        </p>
+
+        <div class="quiz-buttons">
+            <button onclick="verificarResposta(false)">
+                Trator antigo
+            </button>
+
+            <button onclick="verificarResposta(true)">
+                Drone agrícola
+            </button>
+
+            <button onclick="verificarResposta(false)">
+                Arado manual
+            </button>
+        </div>
+
+        <p id="quizResultado"></p>
+    </section>
+
+    <!-- CURIOSIDADES -->
+    <section class="section curiosidades">
+        <h2>Curiosidades</h2>
+
+        <div class="curiosity-box">
+            <p id="curiosidade">
+                Clique no botão para descobrir uma curiosidade.
+            </p>
+
+            <button id="curiosidadeBtn">
+                Mostrar outra curiosidade
+            </button>
+        </div>
+    </section>
+
+    <!-- CRÉDITOS -->
+    <footer>
+        <h3>Créditos</h3>
+
+        <p><strong>Nome do estudante:</strong> Seu Nome</p>
+        <p>Projeto Agrinho 2026</p>
+        <p>Tecnologias utilizadas: HTML, CSS e JavaScript</p>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
