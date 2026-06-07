@@ -108,26 +108,6 @@ window.addEventListener("scroll", () => {
 });
 
 // =====================================
-// COMPARADOR DE EFICIÊNCIA
-// =====================================
-
-const slider = document.getElementById("slider");
-const comparacaoTexto =
-document.getElementById("comparacaoTexto");
-
-if (slider) {
-
-    slider.addEventListener("input", () => {
-
-        comparacaoTexto.innerHTML =
-        slider.value +
-        "% de eficiência";
-
-    });
-
-}
-
-// =====================================
 // SIMULADOR DE ECONOMIA
 // =====================================
 
@@ -254,42 +234,6 @@ if (botaoCuriosidade) {
         textoCuriosidade.innerHTML =
         curiosidades[indiceCuriosidade];
 
-    });
-
-}
-
-// =====================================
-// CHUVA INTERATIVA
-// =====================================
-
-const chuvaBtn =
-document.getElementById("chuvaBtn");
-
-if (chuvaBtn) {
-
-    chuvaBtn.addEventListener("click", () => {
-
-        for (let i = 0; i < 120; i++) {
-
-            const gota =
-            document.createElement("div");
-
-            gota.classList.add("gota");
-
-            gota.style.left =
-            Math.random() * 100 + "vw";
-
-            gota.style.animationDuration =
-            (Math.random() * 1 + 0.5) + "s";
-
-            document.body.appendChild(gota);
-
-            setTimeout(() => {
-
-                gota.remove();
-
-            }, 1500);
-        }
     });
 
 }
