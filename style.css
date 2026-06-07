@@ -1,6 +1,6 @@
-/* =========================
-   CONFIGURAÇÕES GERAIS
-========================= */
+/* =====================================
+   RESET
+===================================== */
 
 *{
     margin:0;
@@ -16,38 +16,100 @@ body{
     overflow-x:hidden;
 }
 
-img{
-    max-width:100%;
-    display:block;
+/* =====================================
+   CURSOR
+===================================== */
+
+.cursor{
+    width:18px;
+    height:18px;
+
+    background:#2ecc71;
+
+    border-radius:50%;
+
+    position:fixed;
+
+    pointer-events:none;
+
+    z-index:99999;
+
+    transform:translate(-50%,-50%);
+
+    box-shadow:
+    0 0 20px #2ecc71;
 }
 
-section{
-    padding:90px 8%;
+/* =====================================
+   DRONE
+===================================== */
+
+#drone{
+
+    position:fixed;
+
+    top:120px;
+    left:-100px;
+
+    font-size:50px;
+
+    z-index:9999;
+
+    animation:voar 25s linear infinite;
 }
 
-h2{
-    text-align:center;
-    font-size:2.5rem;
-    color:#1f7a3f;
-    margin-bottom:50px;
+@keyframes voar{
+
+    0%{
+        left:-100px;
+        transform:translateY(0);
+    }
+
+    25%{
+        transform:translateY(-25px);
+    }
+
+    50%{
+        transform:translateY(20px);
+    }
+
+    75%{
+        transform:translateY(-15px);
+    }
+
+    100%{
+        left:110%;
+        transform:translateY(0);
+    }
 }
 
-/* =========================
+/* =====================================
    MENU
-========================= */
+===================================== */
 
 .header{
+
     position:fixed;
+
     top:0;
     left:0;
+
     width:100%;
-    padding:18px 8%;
+
     display:flex;
+
     justify-content:space-between;
+
     align-items:center;
-    background:rgba(255,255,255,0.95);
+
+    padding:20px 8%;
+
+    background:rgba(255,255,255,.95);
+
     backdrop-filter:blur(10px);
-    box-shadow:0 3px 15px rgba(0,0,0,0.08);
+
+    box-shadow:0 2px 15px rgba(0,0,0,.1);
+
     z-index:1000;
 }
 
@@ -58,33 +120,42 @@ h2{
 }
 
 .header ul{
+
     display:flex;
-    list-style:none;
+
     gap:25px;
+
+    list-style:none;
 }
 
 .header a{
+
     text-decoration:none;
+
     color:#333;
+
     font-weight:600;
-    transition:0.3s;
+
+    transition:.3s;
 }
 
 .header a:hover{
-    color:#1f7a3f;
+
+    color:#2ecc71;
 }
 
-/* =========================
+/* =====================================
    HERO
-========================= */
+===================================== */
 
 .hero{
+
     min-height:100vh;
 
     background:
     linear-gradient(
-    rgba(0,0,0,0.55),
-    rgba(0,0,0,0.55)),
+    rgba(0,0,0,.55),
+    rgba(0,0,0,.55)),
     url("https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=1600");
 
     background-size:cover;
@@ -93,7 +164,9 @@ h2{
     display:flex;
     justify-content:center;
     align-items:center;
+
     text-align:center;
+
     color:white;
 }
 
@@ -102,119 +175,175 @@ h2{
 }
 
 .tag{
+
     background:#2ecc71;
-    color:white;
+
     padding:10px 20px;
-    border-radius:30px;
-    font-size:0.9rem;
+
+    border-radius:50px;
+
     font-weight:600;
 }
 
 .hero h1{
-    font-size:4.5rem;
-    margin-top:25px;
+
+    font-size:5rem;
+
     line-height:1.1;
+
+    margin-top:25px;
 }
 
 .hero p{
-    margin:25px auto;
-    max-width:700px;
+
     font-size:1.2rem;
+
+    margin:25px auto;
+
+    max-width:700px;
 }
 
 .btn{
+
     display:inline-block;
-    padding:14px 35px;
+
+    padding:15px 35px;
+
     background:#2ecc71;
+
     color:white;
+
     text-decoration:none;
+
     border-radius:10px;
+
     font-weight:600;
-    transition:0.3s;
+
+    transition:.3s;
 }
 
 .btn:hover{
-    transform:translateY(-3px);
-    background:#26b564;
+
+    transform:translateY(-4px);
+
+    background:#25b765;
 }
 
-/* =========================
+/* =====================================
+   SEÇÕES
+===================================== */
+
+section{
+    padding:90px 8%;
+}
+
+h2{
+
+    text-align:center;
+
+    color:#1f7a3f;
+
+    margin-bottom:50px;
+
+    font-size:2.5rem;
+}
+
+/* =====================================
    SOBRE
-========================= */
+===================================== */
 
 .sobre-container{
+
     display:flex;
-    align-items:center;
+
     justify-content:center;
+
+    align-items:center;
+
     gap:50px;
+
     flex-wrap:wrap;
 }
 
 .sobre-img img{
+
     width:500px;
-    border-radius:20px;
-    box-shadow:0 10px 30px rgba(0,0,0,0.15);
-}
-
-.sobre-texto{
-    max-width:550px;
-}
-
-.sobre-texto p{
-    margin-bottom:20px;
-    line-height:1.8;
-    font-size:1.1rem;
-}
-
-/* =========================
-   BENEFÍCIOS
-========================= */
-
-.cards{
-    display:flex;
-    justify-content:center;
-    flex-wrap:wrap;
-    gap:25px;
-}
-
-.card{
-    background:white;
-    width:270px;
-    padding:30px;
-    text-align:center;
 
     border-radius:20px;
 
     box-shadow:
-    0 10px 25px rgba(0,0,0,0.08);
+    0 10px 30px rgba(0,0,0,.15);
+}
 
-    transition:0.4s;
+.sobre-texto{
+
+    max-width:550px;
+
+    line-height:1.9;
+}
+
+/* =====================================
+   BENEFÍCIOS
+===================================== */
+
+.cards{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    justify-content:center;
+
+    gap:25px;
+}
+
+.card{
+
+    width:260px;
+
+    background:white;
+
+    padding:30px;
+
+    text-align:center;
+
+    border-radius:20px;
+
+    transition:.4s;
+
+    box-shadow:
+    0 10px 25px rgba(0,0,0,.08);
 }
 
 .card:hover{
 
     transform:
-    translateY(-10px);
+    translateY(-12px);
 
     box-shadow:
-    0 20px 40px rgba(0,0,0,0.15);
+    0 20px 40px rgba(0,0,0,.15);
 }
 
 .icon{
+
     font-size:3rem;
+
     margin-bottom:15px;
 }
 
 .card h3{
-    color:#1f7a3f;
+
     margin-bottom:10px;
+
+    color:#1f7a3f;
 }
 
-/* =========================
+/* =====================================
    IMPACTO
-========================= */
+===================================== */
 
 .impacto{
+
     background:
     linear-gradient(
     135deg,
@@ -230,65 +359,119 @@ h2{
 }
 
 .numeros{
+
     display:flex;
+
     justify-content:center;
-    gap:30px;
+
     flex-wrap:wrap;
+
+    gap:30px;
 }
 
 .numero-box{
+
     text-align:center;
 }
 
 .numero-box h3{
+
     font-size:4rem;
 }
 
-.numero-box p{
-    font-size:1.1rem;
+/* =====================================
+   PLANTA
+===================================== */
+
+.planta-section{
+
+    text-align:center;
 }
 
-/* =========================
+.planta{
+
+    font-size:70px;
+
+    margin:30px 0;
+
+    transition:1s;
+}
+
+.planta.cresceu{
+
+    transform:scale(2.5);
+}
+
+/* =====================================
    GALERIA
-========================= */
+===================================== */
 
 .galeria{
+
     display:flex;
+
     justify-content:center;
+
     gap:20px;
+
     flex-wrap:wrap;
 }
 
 .galeria img{
 
     width:350px;
+
     height:240px;
 
     object-fit:cover;
 
     border-radius:20px;
 
-    transition:0.4s;
+    transition:.4s;
 
     box-shadow:
-    0 10px 25px rgba(0,0,0,0.12);
+    0 10px 25px rgba(0,0,0,.12);
 }
 
 .galeria img:hover{
+
     transform:scale(1.06);
 }
 
-/* =========================
-   SIMULADOR
-========================= */
+/* =====================================
+   COMPARADOR
+===================================== */
 
-.simulador{
+.comparacao{
+
     text-align:center;
+
     background:#eefcf0;
 }
 
-.simulador p{
-    margin-bottom:20px;
+#slider{
+
+    width:350px;
+
+    margin:20px 0;
+}
+
+#comparacaoTexto{
+
+    font-size:1.4rem;
+
+    font-weight:700;
+
+    color:#1f7a3f;
+}
+
+/* =====================================
+   SIMULADOR
+===================================== */
+
+.simulador{
+
+    text-align:center;
 }
 
 .simulador input{
@@ -297,18 +480,16 @@ h2{
 
     padding:14px;
 
-    border:2px solid #2ecc71;
-
     border-radius:10px;
 
-    font-size:1rem;
+    border:2px solid #2ecc71;
 }
 
 .simulador button{
 
-    margin-left:10px;
+    padding:14px 24px;
 
-    padding:14px 25px;
+    margin-left:10px;
 
     border:none;
 
@@ -319,30 +500,71 @@ h2{
     border-radius:10px;
 
     cursor:pointer;
-
-    font-weight:600;
 }
 
 #resultado{
 
-    margin-top:25px;
+    margin-top:20px;
 
     font-size:1.2rem;
 
     font-weight:600;
-
-    color:#1f7a3f;
 }
 
-/* =========================
+/* =====================================
+   CHUVA
+===================================== */
+
+#chuvaBtn{
+
+    padding:14px 25px;
+
+    border:none;
+
+    background:#3498db;
+
+    color:white;
+
+    border-radius:10px;
+
+    cursor:pointer;
+}
+
+.gota{
+
+    position:fixed;
+
+    width:3px;
+
+    height:20px;
+
+    background:#4fc3f7;
+
+    animation:cair 1s linear;
+}
+
+@keyframes cair{
+
+    from{
+        transform:translateY(-50px);
+    }
+
+    to{
+        transform:translateY(100vh);
+    }
+}
+
+/* =====================================
    QUIZ
-========================= */
+===================================== */
 
 .quiz{
+
     text-align:center;
 }
 
 .quiz-buttons{
+
     margin-top:25px;
 }
 
@@ -354,33 +576,32 @@ h2{
 
     border:none;
 
+    border-radius:10px;
+
     background:#1f7a3f;
 
     color:white;
 
-    border-radius:10px;
-
     cursor:pointer;
-
-    transition:0.3s;
 }
 
-.quiz button:hover{
-    transform:translateY(-3px);
+#pontuacao{
+
+    color:#2ecc71;
+
+    margin-bottom:20px;
 }
 
 #quizResultado{
 
-    margin-top:25px;
-
-    font-size:1.2rem;
+    margin-top:20px;
 
     font-weight:700;
 }
 
-/* =========================
+/* =====================================
    CURIOSIDADES
-========================= */
+===================================== */
 
 .curiosidade-box{
 
@@ -397,33 +618,49 @@ h2{
     text-align:center;
 
     box-shadow:
-    0 10px 25px rgba(0,0,0,0.08);
-}
-
-.curiosidade-box p{
-    font-size:1.2rem;
+    0 10px 25px rgba(0,0,0,.08);
 }
 
 .curiosidade-box button{
 
-    margin-top:25px;
+    margin-top:20px;
 
-    padding:12px 24px;
+    padding:12px 22px;
 
     border:none;
+
+    border-radius:10px;
 
     background:#2ecc71;
 
     color:white;
 
-    border-radius:10px;
-
     cursor:pointer;
 }
 
-/* =========================
+/* =====================================
+   CONQUISTA
+===================================== */
+
+.conquista{
+
+    text-align:center;
+
+    background:#eefcf0;
+}
+
+#statusConquista{
+
+    font-size:1.3rem;
+
+    font-weight:600;
+
+    color:#1f7a3f;
+}
+
+/* =====================================
    FOOTER
-========================= */
+===================================== */
 
 footer{
 
@@ -436,17 +673,14 @@ footer{
     padding:50px 20px;
 }
 
-footer h3{
-    margin-bottom:15px;
-}
-
 footer p{
+
     margin-top:8px;
 }
 
-/* =========================
+/* =====================================
    BOTÃO TOPO
-========================= */
+===================================== */
 
 #topo{
 
@@ -472,15 +706,12 @@ footer p{
 
     display:none;
 
-    box-shadow:
-    0 5px 15px rgba(0,0,0,0.2);
-
     z-index:999;
 }
 
-/* =========================
-   ANIMAÇÕES
-========================= */
+/* =====================================
+   REVEAL
+===================================== */
 
 .reveal{
 
@@ -488,7 +719,7 @@ footer p{
 
     transform:translateY(50px);
 
-    transition:all 1s ease;
+    transition:1s;
 }
 
 .reveal.active{
@@ -498,9 +729,9 @@ footer p{
     transform:translateY(0);
 }
 
-/* =========================
+/* =====================================
    RESPONSIVO
-========================= */
+===================================== */
 
 @media(max-width:900px){
 
@@ -509,49 +740,54 @@ footer p{
     }
 
     .header{
+
         flex-direction:column;
+
         gap:15px;
     }
 
     .header ul{
+
         flex-wrap:wrap;
+
         justify-content:center;
     }
 
-    .simulador button{
-        margin-top:10px;
-        margin-left:0;
+    .sobre-img img{
+        width:100%;
     }
 }
 
 @media(max-width:600px){
-
-    section{
-        padding:80px 5%;
-    }
 
     h2{
         font-size:2rem;
     }
 
     .hero h1{
-        font-size:2.3rem;
+        font-size:2.2rem;
     }
 
     .hero p{
         font-size:1rem;
     }
 
-    .numero-box h3{
-        font-size:3rem;
+    .galeria img{
+
+        width:100%;
+        height:auto;
+    }
+
+    #slider{
+        width:100%;
     }
 
     .simulador input{
         width:100%;
     }
 
-    .galeria img{
-        width:100%;
-        height:auto;
+    .simulador button{
+        margin-top:10px;
+        margin-left:0;
     }
 }

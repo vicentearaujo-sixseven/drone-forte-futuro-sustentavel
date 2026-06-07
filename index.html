@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -14,7 +15,18 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 </head>
+
 <body>
+
+<!-- CURSOR -->
+
+<div class="cursor"></div>
+
+<!-- DRONE -->
+
+<div id="drone">
+🚁
+</div>
 
 <!-- MENU -->
 
@@ -25,14 +37,23 @@
     </div>
 
     <nav>
+
         <ul>
+
             <li><a href="#inicio">Início</a></li>
+
             <li><a href="#sobre">Drones</a></li>
+
             <li><a href="#beneficios">Benefícios</a></li>
+
             <li><a href="#impacto">Impacto</a></li>
+
             <li><a href="#simulador">Simulador</a></li>
+
             <li><a href="#quiz">Quiz</a></li>
+
         </ul>
+
     </nav>
 
 </header>
@@ -53,12 +74,12 @@
         </h1>
 
         <p>
-            Como os drones agrícolas ajudam a aumentar a produtividade,
-            economizar recursos naturais e proteger o meio ambiente.
+            Tecnologia, sustentabilidade e inovação trabalhando juntas
+            para produzir mais e preservar o meio ambiente.
         </p>
 
         <a href="#sobre" class="btn">
-            Saiba Mais
+            Explorar Projeto
         </a>
 
     </div>
@@ -75,8 +96,7 @@
 
         <div class="sobre-img">
 
-            <img
-            src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=1200"
+            <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=1200"
             alt="Drone Agrícola">
 
         </div>
@@ -84,16 +104,14 @@
         <div class="sobre-texto">
 
             <p>
-                Os drones agrícolas são aeronaves inteligentes utilizadas para
-                monitorar lavouras, identificar problemas, acompanhar o
-                crescimento das plantações e auxiliar na aplicação precisa de
-                insumos.
+                Os drones agrícolas são equipamentos inteligentes capazes
+                de monitorar plantações, identificar pragas, acompanhar o
+                crescimento das lavouras e auxiliar o produtor rural.
             </p>
 
             <p>
-                Com essa tecnologia, os produtores conseguem reduzir
-                desperdícios, economizar água e aumentar a produtividade,
-                contribuindo para uma agricultura mais sustentável.
+                Eles tornam a agricultura mais eficiente, econômica e
+                sustentável, reduzindo desperdícios e aumentando a produtividade.
             </p>
 
         </div>
@@ -102,7 +120,7 @@
 
 </section>
 
-<!-- BENEFICIOS -->
+<!-- BENEFÍCIOS -->
 
 <section class="section reveal" id="beneficios">
 
@@ -117,7 +135,7 @@
             <h3>Monitoramento</h3>
 
             <p>
-                Acompanhamento detalhado das plantações em tempo real.
+                Visão completa da lavoura em poucos minutos.
             </p>
 
         </div>
@@ -129,7 +147,7 @@
             <h3>Economia de Água</h3>
 
             <p>
-                Irrigação mais eficiente e redução do desperdício.
+                Irrigação mais inteligente e sustentável.
             </p>
 
         </div>
@@ -141,7 +159,7 @@
             <h3>Menor Impacto</h3>
 
             <p>
-                Aplicações mais precisas reduzem danos ambientais.
+                Redução do desperdício de defensivos agrícolas.
             </p>
 
         </div>
@@ -153,7 +171,7 @@
             <h3>Produtividade</h3>
 
             <p>
-                Decisões rápidas e aumento da eficiência no campo.
+                Mais eficiência para o produtor rural.
             </p>
 
         </div>
@@ -177,7 +195,7 @@
             </h3>
 
             <p>
-                % de redução de desperdícios
+                Redução de desperdícios
             </p>
 
         </div>
@@ -189,7 +207,7 @@
             </h3>
 
             <p>
-                % de economia de água
+                Economia de água
             </p>
 
         </div>
@@ -201,12 +219,28 @@
             </h3>
 
             <p>
-                % mais rapidez no monitoramento
+                Monitoramento mais rápido
             </p>
 
         </div>
 
     </div>
+
+</section>
+
+<!-- PLANTA CRESCENDO -->
+
+<section class="planta-section reveal">
+
+    <h2>Crescimento Sustentável</h2>
+
+    <div class="planta">
+        🌱
+    </div>
+
+    <p>
+        A tecnologia ajuda a agricultura a crescer sem prejudicar o meio ambiente.
+    </p>
 
 </section>
 
@@ -228,6 +262,25 @@
 
 </section>
 
+<!-- COMPARADOR -->
+
+<section class="comparacao reveal">
+
+    <h2>Eficiência da Agricultura de Precisão</h2>
+
+    <input
+    type="range"
+    min="0"
+    max="100"
+    value="50"
+    id="slider">
+
+    <p id="comparacaoTexto">
+        50% de eficiência
+    </p>
+
+</section>
+
 <!-- SIMULADOR -->
 
 <section class="simulador reveal" id="simulador">
@@ -235,7 +288,7 @@
     <h2>Simulador de Economia</h2>
 
     <p>
-        Digite a quantidade de hectares da propriedade:
+        Digite a quantidade de hectares:
     </p>
 
     <input
@@ -244,10 +297,28 @@
     placeholder="Digite os hectares">
 
     <button id="calcular">
-        Calcular Economia
+        Calcular
     </button>
 
     <div id="resultado"></div>
+
+</section>
+
+<!-- CHUVA -->
+
+<section class="section reveal">
+
+    <h2>Simulação de Chuva</h2>
+
+    <p>
+        Clique para visualizar a irrigação sustentável.
+    </p>
+
+    <button id="chuvaBtn">
+        Simular Chuva
+    </button>
+
+    <div id="chuva"></div>
 
 </section>
 
@@ -257,6 +328,10 @@
 
     <h2>Quiz Interativo</h2>
 
+    <h3 id="pontuacao">
+        Pontuação: 0
+    </h3>
+
     <p>
         Qual tecnologia ajuda a reduzir o desperdício de defensivos agrícolas?
     </p>
@@ -264,15 +339,15 @@
     <div class="quiz-buttons">
 
         <button onclick="responder(false)">
-            Trator antigo
+            Trator Antigo
         </button>
 
         <button onclick="responder(true)">
-            Drone agrícola
+            Drone Agrícola
         </button>
 
         <button onclick="responder(false)">
-            Arado manual
+            Arado Manual
         </button>
 
     </div>
@@ -291,13 +366,13 @@
 
         <p id="curiosidadeTexto">
 
-            Clique no botão abaixo para descobrir uma curiosidade sobre drones agrícolas.
+            Clique para descobrir uma curiosidade sobre drones agrícolas.
 
         </p>
 
         <button id="novaCuriosidade">
 
-            Mostrar Outra Curiosidade
+            Mostrar Curiosidade
 
         </button>
 
@@ -305,22 +380,38 @@
 
 </section>
 
-<!-- RODAPÉ -->
+<!-- CONQUISTA -->
+
+<section class="conquista reveal">
+
+    <h2>Seu Progresso</h2>
+
+    <p id="statusConquista">
+
+        Explore o site para desbloquear conquistas.
+
+    </p>
+
+</section>
+
+<!-- FOOTER -->
 
 <footer>
 
-    <h3>Agro Forte, Futuro Sustentável</h3>
+    <h3>
+        Agro Forte, Futuro Sustentável
+    </h3>
 
     <p>
-        Projeto desenvolvido para o Agrinho 2026.
+        Projeto Agrinho 2026
     </p>
 
     <p>
-        Tecnologias utilizadas: HTML, CSS e JavaScript.
+        Desenvolvido por: Vicente Fabiane
     </p>
 
     <p>
-        Desenvolvido por: SEU NOME
+        HTML • CSS • JavaScript
     </p>
 
 </footer>

@@ -1,155 +1,30 @@
 // =====================================
-// SIMULADOR DE ECONOMIA
+// CURSOR PERSONALIZADO
 // =====================================
 
-const botaoCalcular = document.getElementById("calcular");
+const cursor = document.querySelector(".cursor");
 
-botaoCalcular.addEventListener("click", () => {
+document.addEventListener("mousemove", (e) => {
 
-    const hectares =
-    Number(document.getElementById("hectares").value);
-
-    const resultado =
-    document.getElementById("resultado");
-
-    if (hectares <= 0 || isNaN(hectares)) {
-
-        resultado.innerHTML =
-        "Digite uma quantidade válida de hectares.";
-
-        resultado.style.color = "red";
-
-        return;
-    }
-
-    const economia = hectares * 50;
-
-    resultado.innerHTML =
-    `Sua propriedade pode economizar aproximadamente <strong>${economia.toLocaleString("pt-BR")}</strong> litros de água utilizando tecnologias de precisão.`;
-
-    resultado.style.color = "#1f7a3f";
+    cursor.style.left = e.clientX + "px";
+    cursor.style.top = e.clientY + "px";
 
 });
 
 // =====================================
-// QUIZ INTERATIVO
+// ANIMAÇÕES AO ROLAR
 // =====================================
 
-function responder(correta) {
-
-    const resultado =
-    document.getElementById("quizResultado");
-
-    if (correta) {
-
-        resultado.innerHTML =
-        "✅ Correto! Os drones agrícolas ajudam a reduzir desperdícios e aumentam a precisão das aplicações.";
-
-        resultado.style.color = "green";
-
-    } else {
-
-        resultado.innerHTML =
-        "❌ Resposta incorreta. Tente novamente.";
-
-        resultado.style.color = "red";
-    }
-}
-
-// =====================================
-// CURIOSIDADES
-// =====================================
-
-const curiosidades = [
-
-    "🚁 Um drone pode monitorar dezenas de hectares em poucos minutos.",
-
-    "🌱 Drones ajudam a identificar pragas antes que elas se espalhem.",
-
-    "💧 A agricultura de precisão reduz o desperdício de água.",
-
-    "📡 Imagens aéreas ajudam os produtores a tomar decisões mais rápidas.",
-
-    "🌎 O uso de drones contribui para uma produção mais sustentável.",
-
-    "🚜 Muitas fazendas já utilizam drones para mapear áreas inteiras.",
-
-    "🌾 A tecnologia permite aumentar a produtividade sem ampliar áreas de cultivo."
-
-];
-
-let indiceCuriosidade = 0;
-
-const botaoCuriosidade =
-document.getElementById("novaCuriosidade");
-
-const textoCuriosidade =
-document.getElementById("curiosidadeTexto");
-
-botaoCuriosidade.addEventListener("click", () => {
-
-    indiceCuriosidade++;
-
-    if (indiceCuriosidade >= curiosidades.length) {
-
-        indiceCuriosidade = 0;
-    }
-
-    textoCuriosidade.innerHTML =
-    curiosidades[indiceCuriosidade];
-
-});
-
-// =====================================
-// BOTÃO VOLTAR AO TOPO
-// =====================================
-
-const botaoTopo =
-document.getElementById("topo");
-
-window.addEventListener("scroll", () => {
-
-    if (window.scrollY > 400) {
-
-        botaoTopo.style.display = "block";
-
-    } else {
-
-        botaoTopo.style.display = "none";
-    }
-});
-
-botaoTopo.addEventListener("click", () => {
-
-    window.scrollTo({
-
-        top: 0,
-
-        behavior: "smooth"
-    });
-
-});
-
-// =====================================
-// ANIMAÇÃO AO ROLAR
-// =====================================
-
-const reveals =
-document.querySelectorAll(".reveal");
+const reveals = document.querySelectorAll(".reveal");
 
 function revelarElementos() {
 
-    reveals.forEach(elemento => {
+    reveals.forEach((elemento) => {
 
-        const alturaJanela =
-        window.innerHeight;
+        const alturaJanela = window.innerHeight;
+        const topoElemento = elemento.getBoundingClientRect().top;
 
-        const topoElemento =
-        elemento.getBoundingClientRect().top;
-
-        const pontoAtivacao = 120;
-
-        if (topoElemento < alturaJanela - pontoAtivacao) {
+        if (topoElemento < alturaJanela - 120) {
 
             elemento.classList.add("active");
         }
@@ -164,37 +39,31 @@ revelarElementos();
 // CONTADORES ANIMADOS
 // =====================================
 
-const contadores =
-document.querySelectorAll(".contador");
+const contadores = document.querySelectorAll(".contador");
 
-let contadoresAnimados = false;
+let contadorAtivado = false;
 
-function animarContadores() {
+function iniciarContadores() {
 
-    const secaoImpacto =
-    document.querySelector(".impacto");
+    const impacto = document.querySelector(".impacto");
 
-    const topo =
-    secaoImpacto.getBoundingClientRect().top;
+    if (!impacto) return;
 
-    const alturaTela =
-    window.innerHeight;
+    const topo = impacto.getBoundingClientRect().top;
 
-    if (topo < alturaTela && !contadoresAnimados) {
+    if (topo < window.innerHeight && !contadorAtivado) {
 
-        contadoresAnimados = true;
+        contadorAtivado = true;
 
-        contadores.forEach(contador => {
+        contadores.forEach((contador) => {
 
-            const alvo =
-            Number(contador.dataset.target);
+            const alvo = Number(contador.dataset.target);
 
             let atual = 0;
 
-            const incremento =
-            alvo / 60;
+            const incremento = alvo / 60;
 
-            const atualizar = () => {
+            function atualizar() {
 
                 atual += incremento;
 
@@ -210,63 +79,342 @@ function animarContadores() {
                     contador.innerText =
                     alvo + "%";
                 }
-            };
+            }
 
             atualizar();
         });
     }
 }
 
-window.addEventListener("scroll", animarContadores);
+window.addEventListener("scroll", iniciarContadores);
 
-animarContadores();
+iniciarContadores();
 
 // =====================================
-// EFEITO SUAVE NOS CARDS
+// PLANTA CRESCENDO
 // =====================================
 
-const cards =
-document.querySelectorAll(".card");
+const planta = document.querySelector(".planta");
 
-cards.forEach(card => {
+window.addEventListener("scroll", () => {
 
-    card.addEventListener("mousemove", e => {
+    if (!planta) return;
 
-        const rect =
-        card.getBoundingClientRect();
+    if (window.scrollY > 1200) {
 
-        const x =
-        e.clientX - rect.left;
+        planta.classList.add("cresceu");
+    }
 
-        const y =
-        e.clientY - rect.top;
+});
 
-        const rotateY =
-        ((x / rect.width) - 0.5) * 12;
+// =====================================
+// COMPARADOR DE EFICIÊNCIA
+// =====================================
 
-        const rotateX =
-        ((y / rect.height) - 0.5) * -12;
+const slider = document.getElementById("slider");
+const comparacaoTexto =
+document.getElementById("comparacaoTexto");
 
-        card.style.transform =
-        `perspective(1000px)
-        rotateX(${rotateX}deg)
-        rotateY(${rotateY}deg)
-        translateY(-8px)`;
+if (slider) {
+
+    slider.addEventListener("input", () => {
+
+        comparacaoTexto.innerHTML =
+        slider.value +
+        "% de eficiência";
 
     });
 
-    card.addEventListener("mouseleave", () => {
+}
 
-        card.style.transform =
-        "translateY(0)";
+// =====================================
+// SIMULADOR DE ECONOMIA
+// =====================================
+
+let simuladorUtilizado = false;
+
+const botaoCalcular =
+document.getElementById("calcular");
+
+if (botaoCalcular) {
+
+    botaoCalcular.addEventListener("click", () => {
+
+        const hectares =
+        Number(document.getElementById("hectares").value);
+
+        const resultado =
+        document.getElementById("resultado");
+
+        if (hectares <= 0 || isNaN(hectares)) {
+
+            resultado.innerHTML =
+            "Digite uma quantidade válida.";
+
+            resultado.style.color = "red";
+
+            return;
+        }
+
+        const economia = hectares * 50;
+
+        resultado.innerHTML =
+        `Sua propriedade pode economizar aproximadamente <strong>${economia.toLocaleString("pt-BR")}</strong> litros de água utilizando tecnologias de precisão.`;
+
+        resultado.style.color =
+        "#1f7a3f";
+
+        simuladorUtilizado = true;
+
+        verificarConquista();
+    });
+
+}
+
+// =====================================
+// QUIZ COM PONTUAÇÃO
+// =====================================
+
+let pontos = 0;
+let quizRespondido = false;
+
+function responder(correta) {
+
+    const resultado =
+    document.getElementById("quizResultado");
+
+    if (correta) {
+
+        pontos++;
+
+        document.getElementById("pontuacao").innerHTML =
+        "Pontuação: " + pontos;
+
+        resultado.innerHTML =
+        "✅ Correto! Os drones ajudam a reduzir desperdícios.";
+
+        resultado.style.color =
+        "green";
+
+        quizRespondido = true;
+
+        verificarConquista();
+
+    } else {
+
+        resultado.innerHTML =
+        "❌ Resposta incorreta. Tente novamente.";
+
+        resultado.style.color =
+        "red";
+    }
+}
+
+// =====================================
+// CURIOSIDADES
+// =====================================
+
+const curiosidades = [
+
+"🚁 Um drone pode monitorar dezenas de hectares em poucos minutos.",
+
+"🌱 Drones ajudam a identificar pragas rapidamente.",
+
+"💧 A agricultura de precisão reduz desperdícios de água.",
+
+"📡 Imagens aéreas auxiliam decisões mais rápidas.",
+
+"🌎 Os drones contribuem para uma agricultura sustentável.",
+
+"🚜 Fazendas modernas utilizam drones diariamente.",
+
+"🌾 O uso de drones aumenta a produtividade agrícola."
+
+];
+
+let indiceCuriosidade = 0;
+
+const botaoCuriosidade =
+document.getElementById("novaCuriosidade");
+
+const textoCuriosidade =
+document.getElementById("curiosidadeTexto");
+
+if (botaoCuriosidade) {
+
+    botaoCuriosidade.addEventListener("click", () => {
+
+        indiceCuriosidade++;
+
+        if (indiceCuriosidade >= curiosidades.length) {
+
+            indiceCuriosidade = 0;
+        }
+
+        textoCuriosidade.innerHTML =
+        curiosidades[indiceCuriosidade];
+
+    });
+
+}
+
+// =====================================
+// CHUVA INTERATIVA
+// =====================================
+
+const chuvaBtn =
+document.getElementById("chuvaBtn");
+
+if (chuvaBtn) {
+
+    chuvaBtn.addEventListener("click", () => {
+
+        for (let i = 0; i < 120; i++) {
+
+            const gota =
+            document.createElement("div");
+
+            gota.classList.add("gota");
+
+            gota.style.left =
+            Math.random() * 100 + "vw";
+
+            gota.style.animationDuration =
+            (Math.random() * 1 + 0.5) + "s";
+
+            document.body.appendChild(gota);
+
+            setTimeout(() => {
+
+                gota.remove();
+
+            }, 1500);
+        }
+    });
+
+}
+
+// =====================================
+// SISTEMA DE CONQUISTAS
+// =====================================
+
+function verificarConquista() {
+
+    const status =
+    document.getElementById("statusConquista");
+
+    if (
+        simuladorUtilizado &&
+        quizRespondido
+    ) {
+
+        status.innerHTML =
+        "🏆 Parabéns! Você desbloqueou o selo Especialista em Agricultura Sustentável!";
+
+    }
+}
+
+// =====================================
+// BOTÃO VOLTAR AO TOPO
+// =====================================
+
+const botaoTopo =
+document.getElementById("topo");
+
+window.addEventListener("scroll", () => {
+
+    if (!botaoTopo) return;
+
+    if (window.scrollY > 500) {
+
+        botaoTopo.style.display =
+        "block";
+
+    } else {
+
+        botaoTopo.style.display =
+        "none";
+    }
+
+});
+
+if (botaoTopo) {
+
+    botaoTopo.addEventListener("click", () => {
+
+        window.scrollTo({
+
+            top: 0,
+
+            behavior: "smooth"
+
+        });
+
+    });
+
+}
+
+// =====================================
+// SOM AO CLICAR (OPCIONAL)
+// =====================================
+
+document.querySelectorAll("button").forEach((botao) => {
+
+    botao.addEventListener("mouseenter", () => {
+
+        botao.style.transform =
+        "scale(1.05)";
+
+    });
+
+    botao.addEventListener("mouseleave", () => {
+
+        botao.style.transform =
+        "scale(1)";
+
     });
 
 });
 
 // =====================================
-// ANO AUTOMÁTICO NO RODAPÉ (OPCIONAL)
+// MENSAGEM DE BOAS-VINDAS
 // =====================================
 
+setTimeout(() => {
+
+    alert(
+        "🌱 Bem-vindo ao projeto Agro Forte, Futuro Sustentável!"
+    );
+
+}, 1000);
+
+// =====================================
+// EASTER EGG
+// =====================================
+
+let cliquesDrone = 0;
+
+const drone =
+document.getElementById("drone");
+
+if (drone) {
+
+    drone.addEventListener("click", () => {
+
+        cliquesDrone++;
+
+        if (cliquesDrone >= 5) {
+
+            alert(
+            "🚁 Você encontrou o segredo do drone!"
+            );
+
+            cliquesDrone = 0;
+        }
+    });
+
+}
+
 console.log(
-"Projeto Agrinho 2026 carregado com sucesso!"
+"🚜 Projeto Agrinho 2026 carregado com sucesso!"
 );
