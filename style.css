@@ -439,33 +439,6 @@ h2{
 }
 
 /* =====================================
-   COMPARADOR
-===================================== */
-
-.comparacao{
-
-    text-align:center;
-
-    background:#eefcf0;
-}
-
-#slider{
-
-    width:350px;
-
-    margin:20px 0;
-}
-
-#comparacaoTexto{
-
-    font-size:1.4rem;
-
-    font-weight:700;
-
-    color:#1f7a3f;
-}
-
-/* =====================================
    SIMULADOR
 ===================================== */
 
@@ -509,49 +482,6 @@ h2{
     font-size:1.2rem;
 
     font-weight:600;
-}
-
-/* =====================================
-   CHUVA
-===================================== */
-
-#chuvaBtn{
-
-    padding:14px 25px;
-
-    border:none;
-
-    background:#3498db;
-
-    color:white;
-
-    border-radius:10px;
-
-    cursor:pointer;
-}
-
-.gota{
-
-    position:fixed;
-
-    width:3px;
-
-    height:20px;
-
-    background:#4fc3f7;
-
-    animation:cair 1s linear;
-}
-
-@keyframes cair{
-
-    from{
-        transform:translateY(-50px);
-    }
-
-    to{
-        transform:translateY(100vh);
-    }
 }
 
 /* =====================================
