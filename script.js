@@ -1,582 +1,226 @@
-// =====================================
-// CURSOR PERSONALIZADO
-// =====================================
+// ===================================
+// SISTEMA DE ABAS
+// ===================================
 
-const cursor = document.querySelector(".cursor");
+function mostrarAba(id) {
 
-if (cursor) {
+    const abas = document.querySelectorAll(".aba");
 
-    document.addEventListener("mousemove", (e) => {
-
-        cursor.style.left = e.clientX + "px";
-        cursor.style.top = e.clientY + "px";
-
+    abas.forEach((aba) => {
+        aba.classList.remove("ativa");
     });
+
+    document.getElementById(id).classList.add("ativa");
 }
 
-// =====================================
-// REVEAL
-// =====================================
+// ===================================
+// SIMULADOR DE ECONOMIA
+// ===================================
 
-const reveals = document.querySelectorAll(".reveal");
+function calcularEconomia() {
 
-function revelar() {
-
-    reveals.forEach((item) => {
-
-        const top = item.getBoundingClientRect().top;
-
-        if (top < window.innerHeight - 100) {
-
-            item.classList.add("active");
-        }
-
-    });
-}
-
-window.addEventListener("scroll", revelar);
-revelar();
-
-// =====================================
-// DASHBOARD
-// =====================================
-
-let xp = 0;
-let nivel = "Iniciante 🌱";
-let conquistas = 0;
-let aguaEconomizada = 0;
-
-function atualizarDashboard() {
-
-    document.getElementById("xp").textContent = xp;
-
-    document.getElementById("nivel").textContent = nivel;
-
-    document.getElementById("conquistas").textContent =
-    conquistas;
-
-    document.getElementById("agua").textContent =
-    aguaEconomizada.toLocaleString("pt-BR");
-}
-
-function adicionarXP(valor) {
-
-    xp += valor;
-
-    if (xp >= 300) {
-
-        nivel = "Mestre do Agro 👑";
-
-    } else if (xp >= 200) {
-
-        nivel = "Especialista 🚁";
-
-    } else if (xp >= 100) {
-
-        nivel = "Produtor Rural 🚜";
-
-    }
-
-    atualizarDashboard();
-}
-
-// =====================================
-// CONTADORES
-// =====================================
-
-const contadores =
-document.querySelectorAll(".contador");
-
-let contadorIniciado = false;
-
-function iniciarContadores() {
-
-    if (contadorIniciado) return;
-
-    const impacto =
-    document.querySelector(".impacto");
-
-    if (!impacto) return;
-
-    const topo =
-    impacto.getBoundingClientRect().top;
-
-    if (topo < window.innerHeight) {
-
-        contadorIniciado = true;
-
-        contadores.forEach((contador) => {
-
-            const alvo =
-            Number(contador.dataset.target);
-
-            let atual = 0;
-
-            const incremento =
-            alvo / 60;
-
-            function atualizar() {
-
-                atual += incremento;
-
-                if (atual < alvo) {
-
-                    contador.innerText =
-                    Math.floor(atual);
-
-                    requestAnimationFrame(
-                        atualizar
-                    );
-
-                } else {
-
-                    contador.innerText =
-                    alvo + "%";
-                }
-            }
-
-            atualizar();
-
-        });
-    }
-}
-
-window.addEventListener(
-    "scroll",
-    iniciarContadores
-);
-
-// =====================================
-// SIMULADOR
-// =====================================
-
-const calcular =
-document.getElementById("calcular");
-
-let simuladorFeito = false;
-
-if (calcular) {
-
-    calcular.addEventListener(
-        "click",
-        () => {
-
-            const hectares =
-            Number(
-                document.getElementById(
-                    "hectares"
-                ).value
-            );
-
-            const resultado =
-            document.getElementById(
-                "resultado"
-            );
-
-            if (
-                hectares <= 0 ||
-                isNaN(hectares)
-            ) {
-
-                resultado.innerHTML =
-                "Digite um valor válido.";
-
-                resultado.style.color =
-                "red";
-
-                return;
-            }
-
-            const economia =
-            hectares * 50;
-
-            aguaEconomizada +=
-            economia;
-
-            resultado.innerHTML =
-            `💧 Sua propriedade pode economizar aproximadamente <strong>${economia.toLocaleString("pt-BR")}</strong> litros de água.`;
-
-            resultado.style.color =
-            "#1f7a3f";
-
-            adicionarXP(25);
-
-            simuladorFeito = true;
-
-            atualizarDashboard();
-
-        }
-    );
-}
-
-// =====================================
-// QUIZ
-// =====================================
-
-let quizConcluido = false;
-let pontuacao = 0;
-
-function responder(correta) {
+    const hectares =
+    Number(document.getElementById("hectares").value);
 
     const resultado =
-    document.getElementById(
-        "quizResultado"
-    );
+    document.getElementById("resultado");
+
+    if (isNaN(hectares) || hectares <= 0) {
+
+        resultado.innerHTML =
+        "⚠️ Digite uma quantidade válida de hectares.";
+
+        resultado.style.color = "red";
+
+        return;
+    }
+
+    const economia = hectares * 50;
+
+    resultado.innerHTML =
+    `💧 Sua propriedade pode economizar aproximadamente <strong>${economia.toLocaleString("pt-BR")}</strong> litros de água utilizando tecnologias de precisão.`;
+
+    resultado.style.color = "#1f7a3f";
+}
+
+// ===================================
+// QUIZ
+// ===================================
+
+function responderQuiz(correta) {
+
+    const resultado =
+    document.getElementById("quizResultado");
 
     if (correta) {
 
-        pontuacao++;
-
-        document.getElementById(
-            "pontuacao"
-        ).innerHTML =
-        "Pontuação: " +
-        pontuacao;
-
         resultado.innerHTML =
-        "✅ Correto!";
+        "✅ Correto! Os drones agrícolas ajudam a reduzir desperdícios e aumentar a eficiência.";
 
-        resultado.style.color =
-        "green";
-
-        adicionarXP(30);
-
-        quizConcluido = true;
+        resultado.style.color = "green";
 
     } else {
 
         resultado.innerHTML =
-        "❌ Resposta incorreta.";
+        "❌ Resposta incorreta. Tente novamente.";
 
-        resultado.style.color =
-        "red";
+        resultado.style.color = "red";
     }
 }
 
-// =====================================
-// MINI GAME DO DRONE
-// =====================================
+// ===================================
+// ANIMAÇÃO DOS NÚMEROS
+// ===================================
 
-const playerDrone =
-document.getElementById("playerDrone");
+const numeros =
+document.querySelectorAll(".numero h3");
 
-const crops =
-document.querySelectorAll(".crop");
+let animado = false;
 
-const scoreElement =
-document.getElementById("score");
+function animarNumeros() {
 
-let score = 0;
+    if (animado) return;
 
-let droneX = 50;
-let droneY = 150;
+    numeros.forEach((numero) => {
 
-document.addEventListener("keydown", (e) => {
+        const texto = numero.innerText;
 
-    if (!playerDrone) return;
+        const alvo =
+        parseInt(texto.replace("%", ""));
 
-    const velocidade = 15;
+        let atual = 0;
 
-    if (e.key === "w") {
-        droneY -= velocidade;
-    }
+        const incremento =
+        alvo / 50;
 
-    if (e.key === "s") {
-        droneY += velocidade;
-    }
+        function atualizar() {
 
-    if (e.key === "a") {
-        droneX -= velocidade;
-    }
+            atual += incremento;
 
-    if (e.key === "d") {
-        droneX += velocidade;
-    }
+            if (atual < alvo) {
 
-    droneX = Math.max(0, Math.min(droneX, 840));
-    droneY = Math.max(0, Math.min(droneY, 340));
+                numero.innerText =
+                Math.floor(atual) + "%";
 
-    playerDrone.style.left =
-    droneX + "px";
+                requestAnimationFrame(atualizar);
 
-    playerDrone.style.top =
-    droneY + "px";
+            } else {
 
-    verificarColisoes();
+                numero.innerText =
+                alvo + "%";
+            }
+        }
+
+        atualizar();
+
+    });
+
+    animado = true;
+}
+
+window.addEventListener("load", animarNumeros);
+
+// ===================================
+// EFEITO NOS BOTÕES
+// ===================================
+
+const botoes =
+document.querySelectorAll("button");
+
+botoes.forEach((botao) => {
+
+    botao.addEventListener("mouseenter", () => {
+
+        botao.style.transform =
+        "translateY(-3px)";
+    });
+
+    botao.addEventListener("mouseleave", () => {
+
+        botao.style.transform =
+        "translateY(0)";
+    });
 
 });
 
-// =====================================
-// COLISÕES
-// =====================================
+// ===================================
+// ZOOM SUAVE NA GALERIA
+// ===================================
 
-function verificarColisoes() {
+const imagens =
+document.querySelectorAll(".galeria img");
 
-    if (!playerDrone) return;
+imagens.forEach((img) => {
 
-    const droneRect =
-    playerDrone.getBoundingClientRect();
+    img.addEventListener("click", () => {
 
-    crops.forEach((crop) => {
+        if (img.classList.contains("zoom")) {
 
-        if (
-            crop.style.display ===
-            "none"
-        ) {
-            return;
-        }
-
-        const cropRect =
-        crop.getBoundingClientRect();
-
-        const colidiu =
-        droneRect.left <
-            cropRect.right &&
-        droneRect.right >
-            cropRect.left &&
-        droneRect.top <
-            cropRect.bottom &&
-        droneRect.bottom >
-            cropRect.top;
-
-        if (colidiu) {
-
-            crop.style.display =
-            "none";
-
-            score += 10;
-
-            scoreElement.textContent =
-            score;
-
-            adicionarXP(20);
-
-            verificarVitoria();
-
-        }
-
-    });
-
-}
-
-// =====================================
-// VITÓRIA
-// =====================================
-
-function verificarVitoria() {
-
-    const restantes =
-    [...crops].filter(
-        crop =>
-        crop.style.display !==
-        "none"
-    );
-
-    if (restantes.length === 0) {
-
-        setTimeout(() => {
-
-            alert(
-                "🎉 Parabéns! Você coletou todas as plantações!"
-            );
-
-            desbloquearConquista(
-                "badgeDrone"
-            );
-
-        }, 200);
-
-    }
-
-}
-
-// =====================================
-// CONQUISTAS
-// =====================================
-
-function desbloquearConquista(id) {
-
-    const badge =
-    document.getElementById(id);
-
-    if (!badge) return;
-
-    if (
-        badge.dataset.desbloqueada ===
-        "sim"
-    ) {
-        return;
-    }
-
-    badge.dataset.desbloqueada =
-    "sim";
-
-    badge.style.background =
-    "#ffffff";
-
-    badge.style.color =
-    "#1f7a3f";
-
-    badge.style.fontWeight =
-    "700";
-
-    conquistas++;
-
-    atualizarDashboard();
-
-}
-
-// =====================================
-// VERIFICADOR DE CONQUISTAS
-// =====================================
-
-setInterval(() => {
-
-    if (quizConcluido) {
-
-        desbloquearConquista(
-            "badgeQuiz"
-        );
-    }
-
-    if (aguaEconomizada > 0) {
-
-        desbloquearConquista(
-            "badgeAgua"
-        );
-    }
-
-    if (xp >= 150) {
-
-        desbloquearConquista(
-            "badgeAgro"
-        );
-    }
-
-}, 1000);
-
-// =====================================
-// BARRAS DE PROGRESSO
-// =====================================
-
-const barras =
-document.querySelectorAll(
-    ".progress-fill"
-);
-
-function ativarBarras() {
-
-    barras.forEach((barra) => {
-
-        barra.style.opacity =
-        "1";
-
-    });
-
-}
-
-window.addEventListener(
-    "load",
-    ativarBarras
-);
-
-// =====================================
-// BOTÃO TOPO
-// =====================================
-
-const topo =
-document.getElementById(
-    "topo"
-);
-
-window.addEventListener(
-    "scroll",
-    () => {
-
-        if (!topo) return;
-
-        if (
-            window.scrollY > 500
-        ) {
-
-            topo.style.display =
-            "block";
+            img.classList.remove("zoom");
 
         } else {
 
-            topo.style.display =
-            "none";
+            document
+            .querySelectorAll(".galeria img")
+            .forEach((foto) => {
 
-        }
-
-    }
-);
-
-if (topo) {
-
-    topo.addEventListener(
-        "click",
-        () => {
-
-            window.scrollTo({
-
-                top: 0,
-
-                behavior:
-                "smooth"
-
+                foto.classList.remove("zoom");
             });
 
+            img.classList.add("zoom");
         }
-    );
 
-}
-
-// =====================================
-// EFEITO NOS BOTÕES
-// =====================================
-
-document
-.querySelectorAll("button")
-.forEach((botao) => {
-
-    botao.addEventListener(
-        "mouseenter",
-        () => {
-
-            botao.style.transform =
-            "scale(1.05)";
-
-        }
-    );
-
-    botao.addEventListener(
-        "mouseleave",
-        () => {
-
-            botao.style.transform =
-            "scale(1)";
-
-        }
-    );
+    });
 
 });
 
-// =====================================
-// MENSAGEM DE BOAS-VINDAS
-// =====================================
+// ===================================
+// CURIOSIDADE AUTOMÁTICA
+// ===================================
 
-setTimeout(() => {
+const curiosidades = [
 
-    console.log(
-        "🌱 Drone Forte, Futuro Sustentável - Agrinho"
-    );
+    "🚁 Um drone agrícola pode monitorar dezenas de hectares em poucos minutos.",
 
-}, 1000);
+    "💧 A agricultura de precisão ajuda a reduzir o desperdício de água.",
 
-// =====================================
+    "🌎 O uso de tecnologia no campo contribui para a preservação ambiental.",
+
+    "📡 Sensores agrícolas ajudam a identificar problemas antes que eles se espalhem.",
+
+    "🌱 Produzir mais e preservar o meio ambiente é possível com inovação."
+];
+
+let indice = 0;
+
+function mostrarCuriosidade() {
+
+    const elemento =
+    document.getElementById("curiosidadeDia");
+
+    if (!elemento) return;
+
+    elemento.innerHTML =
+    curiosidades[indice];
+
+    indice++;
+
+    if (indice >= curiosidades.length) {
+
+        indice = 0;
+    }
+}
+
+setInterval(mostrarCuriosidade, 5000);
+
+// ===================================
 // INICIALIZAÇÃO
-// =====================================
+// ===================================
 
-atualizarDashboard();
-iniciarContadores();
+document.addEventListener("DOMContentLoaded", () => {
+
+    mostrarAba("inicio");
+
+    mostrarCuriosidade();
+
+});
