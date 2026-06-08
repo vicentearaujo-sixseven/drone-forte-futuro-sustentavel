@@ -147,51 +147,6 @@ window.addEventListener(
 );
 
 // =====================================
-// ASSISTENTE VIRTUAL
-// =====================================
-
-const dicas = [
-
-    "🚁 Drones conseguem monitorar dezenas de hectares rapidamente.",
-
-    "🌱 A agricultura sustentável reduz impactos ambientais.",
-
-    "💧 Tecnologias de precisão ajudam a economizar água.",
-
-    "🌎 Menos desperdício significa mais preservação.",
-
-    "📡 Sensores ajudam a identificar problemas antes que se agravem.",
-
-    "🚜 A inovação é uma das chaves para o futuro do campo."
-
-];
-
-let indiceDica = 0;
-
-const assistenteTexto =
-document.getElementById(
-    "assistenteTexto"
-);
-
-if (assistenteTexto) {
-
-    setInterval(() => {
-
-        indiceDica++;
-
-        if (
-            indiceDica >= dicas.length
-        ) {
-            indiceDica = 0;
-        }
-
-        assistenteTexto.innerHTML =
-        dicas[indiceDica];
-
-    }, 5000);
-}
-
-// =====================================
 // SIMULADOR
 // =====================================
 
@@ -322,19 +277,19 @@ document.addEventListener("keydown", (e) => {
 
     const velocidade = 15;
 
-    if (e.key === "ArrowUp") {
+    if (e.key === "w") {
         droneY -= velocidade;
     }
 
-    if (e.key === "ArrowDown") {
+    if (e.key === "s") {
         droneY += velocidade;
     }
 
-    if (e.key === "ArrowLeft") {
+    if (e.key === "a") {
         droneX -= velocidade;
     }
 
-    if (e.key === "ArrowRight") {
+    if (e.key === "d") {
         droneX += velocidade;
     }
 
@@ -614,49 +569,10 @@ document
 setTimeout(() => {
 
     console.log(
-        "🌱 Agro Forte, Futuro Sustentável - Agrinho PRO"
+        "🌱 Drone Forte, Futuro Sustentável - Agrinho"
     );
 
 }, 1000);
-
-// =====================================
-// EASTER EGG DO DRONE
-// =====================================
-
-const droneDecorativo =
-document.getElementById(
-    "drone"
-);
-
-let cliquesDrone = 0;
-
-if (droneDecorativo) {
-
-    droneDecorativo
-    .addEventListener(
-        "click",
-        () => {
-
-            cliquesDrone++;
-
-            if (
-                cliquesDrone >= 5
-            ) {
-
-                alert(
-                    "🚁 Segredo descoberto! A tecnologia é uma grande aliada da agricultura sustentável."
-                );
-
-                adicionarXP(50);
-
-                cliquesDrone = 0;
-
-            }
-
-        }
-    );
-
-}
 
 // =====================================
 // INICIALIZAÇÃO
