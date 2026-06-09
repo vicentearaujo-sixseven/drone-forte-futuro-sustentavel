@@ -13,13 +13,9 @@ html{
 }
 
 body{
-
     font-family:'Poppins',sans-serif;
-
     background:#f4f8f3;
-
     color:#333;
-
     min-height:100vh;
 }
 
@@ -28,33 +24,25 @@ body{
 =================================== */
 
 header{
-
-    background:
-    linear-gradient(
-        135deg,
-        #1f7a3f,
-        #2ecc71
+    background:linear-gradient(
+    135deg,
+    #14532d,
+    #22c55e
     );
 
     color:white;
-
     text-align:center;
-
-    padding:50px 20px;
+    padding:60px 20px;
+    box-shadow:0 5px 20px rgba(0,0,0,.2);
 }
 
-header h1{
-
-    font-size:3rem;
-
+.logo-area h1{
+    font-size:3.2rem;
     margin-bottom:10px;
 }
 
-header p{
-
-    font-size:1.1rem;
-
-    opacity:.95;
+.logo-area p{
+    font-size:1.2rem;
 }
 
 /* ===================================
@@ -62,53 +50,32 @@ header p{
 =================================== */
 
 .menu{
-
     display:flex;
-
     flex-wrap:wrap;
-
     justify-content:center;
-
     gap:12px;
-
-    padding:20px;
-
+    padding:15px;
     background:white;
-
     position:sticky;
-
     top:0;
-
-    z-index:1000;
-
-    box-shadow:
-    0 3px 15px rgba(0,0,0,.08);
+    z-index:999;
+    box-shadow:0 3px 15px rgba(0,0,0,.1);
 }
 
 .menu button{
-
     border:none;
-
-    background:#2ecc71;
-
+    background:#22c55e;
     color:white;
-
     padding:12px 22px;
-
-    border-radius:10px;
-
+    border-radius:12px;
     cursor:pointer;
-
     font-weight:600;
-
     transition:.3s;
 }
 
 .menu button:hover{
-
-    background:#27ae60;
-
-    transform:translateY(-3px);
+    transform:translateY(-4px);
+    background:#15803d;
 }
 
 /* ===================================
@@ -116,24 +83,19 @@ header p{
 =================================== */
 
 .aba{
-
     display:none;
-
     animation:fade .5s ease;
 }
 
 .aba.ativa{
-
     display:block;
 }
 
 @keyframes fade{
-
     from{
         opacity:0;
         transform:translateY(20px);
     }
-
     to{
         opacity:1;
         transform:translateY(0);
@@ -141,28 +103,23 @@ header p{
 }
 
 /* ===================================
-   SEÇÕES
+   SECTIONS
 =================================== */
 
 section{
-
     padding:50px 8%;
 }
 
 section h2{
-
     text-align:center;
-
-    color:#1f7a3f;
-
-    margin-bottom:30px;
-
+    color:#166534;
+    margin-bottom:25px;
     font-size:2.3rem;
 }
 
-section p{
-
-    line-height:1.8;
+.texto-centro{
+    text-align:center;
+    margin-bottom:25px;
 }
 
 /* ===================================
@@ -170,40 +127,31 @@ section p{
 =================================== */
 
 .hero{
-
     display:flex;
-
-    flex-wrap:wrap;
-
     align-items:center;
-
     justify-content:center;
-
     gap:40px;
+    flex-wrap:wrap;
 }
 
 .hero img{
-
     width:550px;
-
     max-width:100%;
-
     border-radius:20px;
-
-    box-shadow:
-    0 15px 35px rgba(0,0,0,.15);
+    box-shadow:0 15px 30px rgba(0,0,0,.15);
 }
 
 .hero-texto{
-
     max-width:600px;
 }
 
 .hero-texto h2{
-
     text-align:left;
+}
 
-    margin-bottom:20px;
+.hero-texto p{
+    margin-bottom:15px;
+    line-height:1.8;
 }
 
 /* ===================================
@@ -211,40 +159,30 @@ section p{
 =================================== */
 
 .estatisticas{
-
     display:flex;
-
     justify-content:center;
-
     flex-wrap:wrap;
-
     gap:25px;
-
-    margin-top:50px;
+    margin-top:40px;
 }
 
 .numero{
-
-    width:250px;
-
+    width:260px;
     background:white;
-
     padding:25px;
-
+    border-radius:20px;
     text-align:center;
+    box-shadow:0 10px 20px rgba(0,0,0,.08);
+    transition:.3s;
+}
 
-    border-radius:18px;
-
-    box-shadow:
-    0 10px 25px rgba(0,0,0,.08);
+.numero:hover{
+    transform:translateY(-8px);
 }
 
 .numero h3{
-
-    color:#2ecc71;
-
+    color:#22c55e;
     font-size:2.5rem;
-
     margin-bottom:10px;
 }
 
@@ -252,23 +190,27 @@ section p{
    INTRODUÇÃO
 =================================== */
 
-.introducao{
-
-    margin-top:50px;
-
+.introducao,
+.curiosidade-box,
+.destaque,
+.explicacao,
+.conclusao,
+.quiz-info,
+.futuro-box{
     background:white;
-
-    padding:35px;
-
+    padding:30px;
     border-radius:20px;
-
-    box-shadow:
-    0 10px 25px rgba(0,0,0,.08);
+    margin-top:30px;
+    box-shadow:0 10px 20px rgba(0,0,0,.08);
 }
 
-.introducao h2{
-
-    text-align:left;
+.introducao p,
+.destaque p,
+.explicacao p,
+.conclusao p,
+.futuro-box p{
+    margin-bottom:15px;
+    line-height:1.8;
 }
 
 /* ===================================
@@ -276,19 +218,12 @@ section p{
 =================================== */
 
 .imagem-principal{
-
     width:100%;
-
     max-width:1000px;
-
     display:block;
-
-    margin:25px auto;
-
+    margin:20px auto;
     border-radius:20px;
-
-    box-shadow:
-    0 15px 35px rgba(0,0,0,.12);
+    box-shadow:0 15px 30px rgba(0,0,0,.12);
 }
 
 /* ===================================
@@ -296,53 +231,42 @@ section p{
 =================================== */
 
 ul{
-
     margin:20px 0 20px 30px;
 }
 
 li{
-
-    margin-bottom:10px;
+    margin-bottom:12px;
 }
 
 /* ===================================
-   INFO CARDS
+   CARDS INFO
 =================================== */
 
 .cards-info{
-
     display:flex;
-
-    justify-content:center;
-
     flex-wrap:wrap;
-
-    gap:20px;
-
+    justify-content:center;
+    gap:25px;
     margin-top:30px;
 }
 
 .info-card{
-
     width:260px;
-
     background:white;
-
     padding:25px;
-
-    border-radius:18px;
-
+    border-radius:20px;
     text-align:center;
-
-    box-shadow:
-    0 10px 25px rgba(0,0,0,.08);
-
+    box-shadow:0 10px 20px rgba(0,0,0,.08);
     transition:.3s;
 }
 
 .info-card:hover{
+    transform:translateY(-8px);
+}
 
-    transform:translateY(-6px);
+.info-card h4{
+    color:#15803d;
+    margin-bottom:10px;
 }
 
 /* ===================================
@@ -350,45 +274,29 @@ li{
 =================================== */
 
 .cards-beneficios{
-
     display:flex;
-
     flex-wrap:wrap;
-
     justify-content:center;
-
     gap:25px;
 }
 
 .card{
-
     width:280px;
-
     background:white;
-
     padding:25px;
-
-    border-radius:18px;
-
-    box-shadow:
-    0 10px 25px rgba(0,0,0,.08);
-
+    border-radius:20px;
+    box-shadow:0 10px 20px rgba(0,0,0,.08);
     transition:.3s;
 }
 
 .card:hover{
-
-    transform:translateY(-8px);
-
-    box-shadow:
-    0 15px 35px rgba(0,0,0,.15);
+    transform:translateY(-10px);
+    box-shadow:0 15px 30px rgba(0,0,0,.15);
 }
 
 .card h3{
-
-    color:#1f7a3f;
-
-    margin-bottom:10px;
+    color:#166534;
+    margin-bottom:12px;
 }
 
 /* ===================================
@@ -396,39 +304,26 @@ li{
 =================================== */
 
 .comparacao{
-
-    margin-top:50px;
+    margin-top:40px;
 }
 
 table{
-
     width:100%;
-
     border-collapse:collapse;
-
     background:white;
-
-    border-radius:15px;
-
+    border-radius:20px;
     overflow:hidden;
-
-    box-shadow:
-    0 10px 25px rgba(0,0,0,.08);
+    box-shadow:0 10px 20px rgba(0,0,0,.08);
 }
 
 th{
-
-    background:#2ecc71;
-
+    background:#22c55e;
     color:white;
-
     padding:15px;
 }
 
 td{
-
     padding:15px;
-
     border-bottom:1px solid #eee;
 }
 
@@ -437,57 +332,41 @@ td{
 =================================== */
 
 .simulador-box{
-
     display:flex;
-
     flex-wrap:wrap;
-
     justify-content:center;
-
     gap:15px;
-
     margin:30px 0;
 }
 
 .simulador-box input{
-
-    padding:15px;
-
     width:300px;
-
-    border:2px solid #2ecc71;
-
-    border-radius:10px;
+    padding:15px;
+    border:2px solid #22c55e;
+    border-radius:12px;
+    outline:none;
 }
 
 .simulador-box button{
-
     border:none;
-
-    background:#2ecc71;
-
+    background:#22c55e;
     color:white;
-
     padding:15px 25px;
-
-    border-radius:10px;
-
+    border-radius:12px;
     cursor:pointer;
-
     font-weight:600;
+    transition:.3s;
+}
+
+.simulador-box button:hover{
+    background:#15803d;
 }
 
 #resultado{
-
     text-align:center;
-
+    font-size:1.3rem;
+    font-weight:700;
     margin-top:20px;
-
-    font-size:1.2rem;
-
-    font-weight:600;
-
-    color:#1f7a3f;
 }
 
 /* ===================================
@@ -495,42 +374,32 @@ td{
 =================================== */
 
 .quiz-box{
-
-    text-align:center;
-
     background:white;
-
-    padding:35px;
-
+    padding:30px;
     border-radius:20px;
-
-    box-shadow:
-    0 10px 25px rgba(0,0,0,.08);
+    text-align:center;
+    margin-top:30px;
+    box-shadow:0 10px 20px rgba(0,0,0,.08);
 }
 
 .quiz-box button{
-
     margin:10px;
-
     border:none;
-
-    background:#2ecc71;
-
+    background:#22c55e;
     color:white;
-
     padding:12px 20px;
-
-    border-radius:10px;
-
+    border-radius:12px;
     cursor:pointer;
+    transition:.3s;
+}
+
+.quiz-box button:hover{
+    background:#15803d;
 }
 
 #quizResultado{
-
     margin-top:20px;
-
     font-size:1.2rem;
-
     font-weight:700;
 }
 
@@ -539,63 +408,172 @@ td{
 =================================== */
 
 .galeria{
-
     display:grid;
-
     grid-template-columns:
     repeat(auto-fit,minmax(280px,1fr));
-
     gap:20px;
 }
 
 .galeria img{
-
     width:100%;
-
     height:250px;
-
     object-fit:cover;
-
-    border-radius:18px;
-
+    border-radius:20px;
+    cursor:pointer;
     transition:.4s;
-
-    box-shadow:
-    0 10px 25px rgba(0,0,0,.1);
+    box-shadow:0 10px 20px rgba(0,0,0,.1);
 }
 
 .galeria img:hover{
+    transform:scale(1.05);
+}
 
-    transform:scale(1.04);
+.galeria img.zoom{
+    transform:scale(1.15);
+    z-index:50;
 }
 
 /* ===================================
-   FUTURO
+   JOGO
 =================================== */
 
-.conclusao{
+.hud{
+    display:flex;
+    justify-content:center;
+    gap:40px;
+    margin:20px 0;
+}
 
-    margin-top:40px;
-
+.hud-item{
     background:white;
+    padding:15px 25px;
+    border-radius:15px;
+    font-weight:700;
+    box-shadow:0 5px 15px rgba(0,0,0,.1);
+}
 
-    padding:30px;
+#gameArea{
+
+    width:100%;
+    max-width:900px;
+
+    height:500px;
+
+    margin:auto;
+
+    background:
+    linear-gradient(
+        #87ceeb,
+        #c8f7c5
+    );
 
     border-radius:20px;
 
+    border:4px solid #15803d;
+
+    overflow:hidden;
+
+    position:relative;
+
     box-shadow:
-    0 10px 25px rgba(0,0,0,.08);
+    0 15px 30px rgba(0,0,0,.15);
+}
+
+#drone{
+
+    position:absolute;
+
+    bottom:20px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    font-size:55px;
+
+    user-select:none;
+}
+
+.planta{
+
+    position:absolute;
+
+    font-size:40px;
+
+    user-select:none;
+}
+
+.tiro{
+
+    position:absolute;
+
+    font-size:24px;
+
+    color:red;
+
+    user-select:none;
+}
+
+.game-buttons{
+    text-align:center;
+    margin-top:25px;
+}
+
+.game-buttons button{
+
+    border:none;
+
+    background:#22c55e;
+
+    color:white;
+
+    padding:15px 30px;
+
+    border-radius:15px;
+
+    cursor:pointer;
+
+    font-size:1rem;
+
+    font-weight:700;
+
+    transition:.3s;
+}
+
+.game-buttons button:hover{
+
+    background:#15803d;
+
+    transform:translateY(-3px);
+}
+
+.instrucoes{
+
+    margin-top:30px;
+
+    background:white;
+
+    padding:25px;
+
+    border-radius:20px;
+
+    box-shadow:0 10px 20px rgba(0,0,0,.08);
+}
+
+.instrucoes h3{
+    margin-bottom:15px;
+    color:#166534;
 }
 
 /* ===================================
-   FOOTER
+   RODAPÉ
 =================================== */
 
 footer{
 
-    margin-top:40px;
+    margin-top:60px;
 
-    background:#163d24;
+    background:#14532d;
 
     color:white;
 
@@ -604,8 +582,11 @@ footer{
     padding:40px 20px;
 }
 
-footer p{
+footer h3{
+    margin-bottom:15px;
+}
 
+footer p{
     margin:8px 0;
 }
 
@@ -615,48 +596,64 @@ footer p{
 
 @media(max-width:900px){
 
-    header h1{
-
-        font-size:2.2rem;
-    }
-
     .hero{
-
         flex-direction:column;
     }
 
     .hero-texto h2{
-
         text-align:center;
     }
 
-    section h2{
+    .logo-area h1{
+        font-size:2.3rem;
+    }
 
+    section h2{
         font-size:1.8rem;
     }
 }
 
-@media(max-width:600px){
-
-    .menu{
-
-        gap:8px;
-    }
+@media(max-width:700px){
 
     .menu button{
-
         width:100%;
     }
 
+    .numero,
     .card,
-    .info-card,
-    .numero{
-
+    .info-card{
         width:100%;
     }
 
     .simulador-box input{
-
         width:100%;
+    }
+
+    #gameArea{
+        height:400px;
+    }
+
+    #drone{
+        font-size:45px;
+    }
+}
+
+@media(max-width:500px){
+
+    .hud{
+        flex-direction:column;
+        align-items:center;
+    }
+
+    #gameArea{
+        height:350px;
+    }
+
+    .planta{
+        font-size:30px;
+    }
+
+    #drone{
+        font-size:40px;
     }
 }

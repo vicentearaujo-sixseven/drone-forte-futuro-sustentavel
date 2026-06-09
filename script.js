@@ -1,6 +1,6 @@
-// ===================================
+// ======================================
 // SISTEMA DE ABAS
-// ===================================
+// ======================================
 
 function mostrarAba(id) {
 
@@ -11,82 +11,79 @@ function mostrarAba(id) {
     });
 
     document.getElementById(id).classList.add("ativa");
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
 }
 
-// ===================================
-// SIMULADOR DE ECONOMIA
-// ===================================
+// ======================================
+// CURIOSIDADES
+// ======================================
 
-function calcularEconomia() {
+const curiosidades = [
 
-    const hectares =
-    Number(document.getElementById("hectares").value);
+    "🚁 Um drone agrícola pode monitorar dezenas de hectares em poucos minutos.",
 
-    const resultado =
-    document.getElementById("resultado");
+    "💧 A agricultura de precisão ajuda a reduzir o desperdício de água.",
 
-    if (isNaN(hectares) || hectares <= 0) {
+    "🌎 Drones ajudam a proteger o meio ambiente através do uso inteligente de recursos.",
 
-        resultado.innerHTML =
-        "⚠️ Digite uma quantidade válida de hectares.";
+    "📡 Sensores conseguem identificar problemas antes mesmo de serem visíveis.",
 
-        resultado.style.color = "red";
+    "🌱 A tecnologia está transformando o futuro da agricultura.",
 
-        return;
-    }
+    "🚜 A agricultura de precisão aumenta a produtividade e reduz custos.",
 
-    const economia = hectares * 50;
+    "☀️ Os drones conseguem gerar mapas detalhados das plantações."
 
-    resultado.innerHTML =
-    `💧 Sua propriedade pode economizar aproximadamente <strong>${economia.toLocaleString("pt-BR")}</strong> litros de água utilizando tecnologias de precisão.`;
+];
 
-    resultado.style.color = "#1f7a3f";
-}
+let indiceCuriosidade = 0;
 
-// ===================================
-// QUIZ
-// ===================================
+function mostrarCuriosidade() {
 
-function responderQuiz(correta) {
+    const elemento =
+    document.getElementById("curiosidadeDia");
 
-    const resultado =
-    document.getElementById("quizResultado");
+    if (!elemento) return;
 
-    if (correta) {
+    elemento.innerHTML =
+    curiosidades[indiceCuriosidade];
 
-        resultado.innerHTML =
-        "✅ Correto! Os drones agrícolas ajudam a reduzir desperdícios e aumentar a eficiência.";
+    indiceCuriosidade++;
 
-        resultado.style.color = "green";
-
-    } else {
-
-        resultado.innerHTML =
-        "❌ Resposta incorreta. Tente novamente.";
-
-        resultado.style.color = "red";
+    if (indiceCuriosidade >= curiosidades.length) {
+        indiceCuriosidade = 0;
     }
 }
 
-// ===================================
+setInterval(
+    mostrarCuriosidade,
+    5000
+);
+
+// ======================================
 // ANIMAÇÃO DOS NÚMEROS
-// ===================================
+// ======================================
 
-const numeros =
-document.querySelectorAll(".numero h3");
-
-let animado = false;
+let numerosAnimados = false;
 
 function animarNumeros() {
 
-    if (animado) return;
+    if (numerosAnimados) return;
 
-    numeros.forEach((numero) => {
+    const numeros =
+    document.querySelectorAll(".numero h3");
 
-        const texto = numero.innerText;
+    numeros.forEach(numero => {
+
+        const texto =
+        numero.innerText;
 
         const alvo =
-        parseInt(texto.replace("%", ""));
+        parseInt(texto);
 
         let atual = 0;
 
@@ -115,112 +112,426 @@ function animarNumeros() {
 
     });
 
-    animado = true;
+    numerosAnimados = true;
 }
 
-window.addEventListener("load", animarNumeros);
+window.addEventListener(
+    "load",
+    animarNumeros
+);
 
-// ===================================
-// EFEITO NOS BOTÕES
-// ===================================
+// ======================================
+// SIMULADOR
+// ======================================
 
-const botoes =
-document.querySelectorAll("button");
+function calcularEconomia() {
 
-botoes.forEach((botao) => {
+    const hectares =
+    Number(
+        document.getElementById("hectares").value
+    );
 
-    botao.addEventListener("mouseenter", () => {
+    const resultado =
+    document.getElementById("resultado");
 
-        botao.style.transform =
-        "translateY(-3px)";
-    });
+    if (
+        hectares <= 0 ||
+        isNaN(hectares)
+    ) {
 
-    botao.addEventListener("mouseleave", () => {
+        resultado.innerHTML =
+        "⚠️ Digite um valor válido.";
 
-        botao.style.transform =
-        "translateY(0)";
-    });
+        resultado.style.color = "red";
 
-});
+        return;
+    }
 
-// ===================================
-// ZOOM SUAVE NA GALERIA
-// ===================================
+    const economia =
+    hectares * 50;
 
-const imagens =
-document.querySelectorAll(".galeria img");
+    resultado.style.color =
+    "#15803d";
 
-imagens.forEach((img) => {
+    resultado.innerHTML =
 
-    img.addEventListener("click", () => {
+    `💧 Sua propriedade pode economizar aproximadamente <strong>${economia.toLocaleString("pt-BR")}</strong> litros de água utilizando tecnologias de precisão.`;
+}
 
-        if (img.classList.contains("zoom")) {
+// ======================================
+// QUIZ
+// ======================================
 
-            img.classList.remove("zoom");
+let pontuacaoQuiz = 0;
 
-        } else {
+function responderQuiz(correta) {
 
-            document
-            .querySelectorAll(".galeria img")
-            .forEach((foto) => {
+    const resultado =
+    document.getElementById(
+        "quizResultado"
+    );
 
-                foto.classList.remove("zoom");
-            });
+    if (correta) {
 
-            img.classList.add("zoom");
+        pontuacaoQuiz++;
+
+        resultado.innerHTML =
+        "✅ Resposta correta!";
+
+        resultado.style.color =
+        "green";
+
+    } else {
+
+        resultado.innerHTML =
+        "❌ Resposta incorreta.";
+
+        resultado.style.color =
+        "red";
+    }
+}
+
+// ======================================
+// GALERIA ZOOM
+// ======================================
+
+document.addEventListener(
+    "DOMContentLoaded",
+    () => {
+
+        const imagens =
+        document.querySelectorAll(
+            ".galeria img"
+        );
+
+        imagens.forEach(img => {
+
+            img.addEventListener(
+                "click",
+                () => {
+
+                    if (
+                        img.classList.contains(
+                            "zoom"
+                        )
+                    ) {
+
+                        img.classList.remove(
+                            "zoom"
+                        );
+
+                    } else {
+
+                        imagens.forEach(
+                            foto => {
+
+                                foto.classList.remove(
+                                    "zoom"
+                                );
+
+                            }
+                        );
+
+                        img.classList.add(
+                            "zoom"
+                        );
+                    }
+                }
+            );
+
+        });
+
+    }
+);
+
+// ======================================
+// MINI GAME DRONE FORTE
+// ======================================
+
+let area;
+let drone;
+
+let pontos = 0;
+
+let posX = 420;
+
+let jogoIniciado = false;
+
+let intervaloPlantas;
+
+// ======================================
+
+function iniciarJogo() {
+
+    if (jogoIniciado) return;
+
+    jogoIniciado = true;
+
+    area =
+    document.getElementById(
+        "gameArea"
+    );
+
+    drone =
+    document.getElementById(
+        "drone"
+    );
+
+    pontos = 0;
+
+    document.getElementById(
+        "pontos"
+    ).innerText = pontos;
+
+    let recorde =
+    localStorage.getItem(
+        "recordeDroneForte"
+    );
+
+    if (!recorde) {
+
+        recorde = 0;
+    }
+
+    document.getElementById(
+        "recorde"
+    ).innerText = recorde;
+
+    intervaloPlantas =
+    setInterval(
+        criarPlanta,
+        1000
+    );
+}
+
+// ======================================
+// MOVIMENTO
+// ======================================
+
+document.addEventListener(
+    "keydown",
+    (e) => {
+
+        if (!jogoIniciado) return;
+
+        if (e.key === "ArrowLeft") {
+
+            posX -= 25;
+
+            if (posX < 0) {
+                posX = 0;
+            }
+
+            drone.style.left =
+            posX + "px";
+        }
+
+        if (e.key === "ArrowRight") {
+
+            posX += 25;
+
+            if (posX > 840) {
+                posX = 840;
+            }
+
+            drone.style.left =
+            posX + "px";
+        }
+
+        if (e.code === "Space") {
+
+            atirar();
+        }
+
+    }
+);
+
+// ======================================
+// TIROS
+// ======================================
+
+function atirar() {
+
+    const tiro =
+    document.createElement(
+        "div"
+    );
+
+    tiro.className =
+    "tiro";
+
+    tiro.innerHTML =
+    "🔺";
+
+    tiro.style.left =
+    (posX + 20) + "px";
+
+    tiro.style.bottom =
+    "70px";
+
+    area.appendChild(
+        tiro
+    );
+
+    const mover =
+    setInterval(() => {
+
+        let atual =
+        parseInt(
+            tiro.style.bottom
+        );
+
+        tiro.style.bottom =
+        (atual + 15) + "px";
+
+        verificarAcerto(
+            tiro
+        );
+
+        if (atual > 520) {
+
+            clearInterval(
+                mover
+            );
+
+            tiro.remove();
+        }
+
+    }, 20);
+}
+
+// ======================================
+// PLANTAS
+// ======================================
+
+function criarPlanta() {
+
+    const planta =
+    document.createElement(
+        "div"
+    );
+
+    planta.className =
+    "planta";
+
+    planta.innerHTML =
+    "🌱";
+
+    planta.style.left =
+    Math.random() * 850 +
+    "px";
+
+    planta.style.top =
+    "-50px";
+
+    area.appendChild(
+        planta
+    );
+
+    const cair =
+    setInterval(() => {
+
+        let atual =
+        parseInt(
+            planta.style.top
+        );
+
+        planta.style.top =
+        (atual + 4) + "px";
+
+        if (atual > 520) {
+
+            clearInterval(
+                cair
+            );
+
+            planta.remove();
+        }
+
+    }, 20);
+}
+
+// ======================================
+// COLISÃO
+// ======================================
+
+function verificarAcerto(
+    tiro
+) {
+
+    document
+    .querySelectorAll(
+        ".planta"
+    )
+    .forEach(planta => {
+
+        const t =
+        tiro.getBoundingClientRect();
+
+        const p =
+        planta.getBoundingClientRect();
+
+        if (
+
+            t.left < p.right &&
+            t.right > p.left &&
+            t.top < p.bottom &&
+            t.bottom > p.top
+
+        ) {
+
+            planta.remove();
+
+            tiro.remove();
+
+            pontos += 10;
+
+            document.getElementById(
+                "pontos"
+            ).innerText =
+            pontos;
+
+            let recorde =
+            Number(
+                localStorage.getItem(
+                    "recordeDroneForte"
+                )
+            ) || 0;
+
+            if (
+                pontos > recorde
+            ) {
+
+                localStorage.setItem(
+                    "recordeDroneForte",
+                    pontos
+                );
+
+                document.getElementById(
+                    "recorde"
+                ).innerText =
+                pontos;
+            }
+
         }
 
     });
 
-});
-
-// ===================================
-// CURIOSIDADE AUTOMÁTICA
-// ===================================
-
-const curiosidades = [
-
-    "🚁 Um drone agrícola pode monitorar dezenas de hectares em poucos minutos.",
-
-    "💧 A agricultura de precisão ajuda a reduzir o desperdício de água.",
-
-    "🌎 O uso de tecnologia no campo contribui para a preservação ambiental.",
-
-    "📡 Sensores agrícolas ajudam a identificar problemas antes que eles se espalhem.",
-
-    "🌱 Produzir mais e preservar o meio ambiente é possível com inovação."
-];
-
-let indice = 0;
-
-function mostrarCuriosidade() {
-
-    const elemento =
-    document.getElementById("curiosidadeDia");
-
-    if (!elemento) return;
-
-    elemento.innerHTML =
-    curiosidades[indice];
-
-    indice++;
-
-    if (indice >= curiosidades.length) {
-
-        indice = 0;
-    }
 }
 
-setInterval(mostrarCuriosidade, 5000);
-
-// ===================================
+// ======================================
 // INICIALIZAÇÃO
-// ===================================
+// ======================================
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener(
+    "DOMContentLoaded",
+    () => {
 
-    mostrarAba("inicio");
+        mostrarCuriosidade();
 
-    mostrarCuriosidade();
+        mostrarAba(
+            "inicio"
+        );
 
-});
+    }
+);
