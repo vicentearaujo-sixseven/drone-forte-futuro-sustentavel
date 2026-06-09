@@ -1,4 +1,9 @@
 // ======================================
+// DRONE FORTE
+// SCRIPT FINAL - PARTE 1
+// ======================================
+
+// ======================================
 // SISTEMA DE ABAS
 // ======================================
 
@@ -10,12 +15,18 @@ function mostrarAba(id) {
         aba.classList.remove("ativa");
     });
 
-    document.getElementById(id).classList.add("ativa");
+    const abaSelecionada =
+    document.getElementById(id);
+
+    if (abaSelecionada) {
+        abaSelecionada.classList.add("ativa");
+    }
 
     window.scrollTo({
         top: 0,
         behavior: "smooth"
     });
+
 }
 
 // ======================================
@@ -26,17 +37,21 @@ const curiosidades = [
 
     "🚁 Um drone agrícola pode monitorar dezenas de hectares em poucos minutos.",
 
-    "💧 A agricultura de precisão ajuda a reduzir o desperdício de água.",
+    "💧 A agricultura de precisão reduz desperdícios de água.",
 
-    "🌎 Drones ajudam a proteger o meio ambiente através do uso inteligente de recursos.",
+    "🌎 Drones ajudam a preservar o meio ambiente.",
 
-    "📡 Sensores conseguem identificar problemas antes mesmo de serem visíveis.",
+    "📡 Sensores detectam problemas rapidamente.",
 
-    "🌱 A tecnologia está transformando o futuro da agricultura.",
+    "🌱 Tecnologia e sustentabilidade caminham juntas.",
 
-    "🚜 A agricultura de precisão aumenta a produtividade e reduz custos.",
+    "🚜 A agricultura de precisão aumenta a produtividade.",
 
-    "☀️ Os drones conseguem gerar mapas detalhados das plantações."
+    "☀️ Drones criam mapas detalhados das plantações.",
+
+    "🌾 A inovação é essencial para o futuro do campo.",
+
+    "🛰️ O GPS permite monitoramento extremamente preciso."
 
 ];
 
@@ -45,7 +60,9 @@ let indiceCuriosidade = 0;
 function mostrarCuriosidade() {
 
     const elemento =
-    document.getElementById("curiosidadeDia");
+    document.getElementById(
+        "curiosidadeDia"
+    );
 
     if (!elemento) return;
 
@@ -54,9 +71,15 @@ function mostrarCuriosidade() {
 
     indiceCuriosidade++;
 
-    if (indiceCuriosidade >= curiosidades.length) {
+    if (
+        indiceCuriosidade >=
+        curiosidades.length
+    ) {
+
         indiceCuriosidade = 0;
+
     }
+
 }
 
 setInterval(
@@ -75,20 +98,19 @@ function animarNumeros() {
     if (numerosAnimados) return;
 
     const numeros =
-    document.querySelectorAll(".numero h3");
+    document.querySelectorAll(
+        ".numero h3"
+    );
 
     numeros.forEach(numero => {
 
-        const texto =
-        numero.innerText;
-
         const alvo =
-        parseInt(texto);
+        parseInt(numero.innerText);
 
         let atual = 0;
 
         const incremento =
-        alvo / 50;
+        alvo / 60;
 
         function atualizar() {
 
@@ -99,13 +121,17 @@ function animarNumeros() {
                 numero.innerText =
                 Math.floor(atual) + "%";
 
-                requestAnimationFrame(atualizar);
+                requestAnimationFrame(
+                    atualizar
+                );
 
             } else {
 
                 numero.innerText =
                 alvo + "%";
+
             }
+
         }
 
         atualizar();
@@ -113,6 +139,7 @@ function animarNumeros() {
     });
 
     numerosAnimados = true;
+
 }
 
 window.addEventListener(
@@ -126,25 +153,30 @@ window.addEventListener(
 
 function calcularEconomia() {
 
-    const hectares =
-    Number(
-        document.getElementById("hectares").value
+    const hectares = Number(
+        document.getElementById(
+            "hectares"
+        ).value
     );
 
     const resultado =
-    document.getElementById("resultado");
+    document.getElementById(
+        "resultado"
+    );
 
     if (
-        hectares <= 0 ||
-        isNaN(hectares)
+        isNaN(hectares) ||
+        hectares <= 0
     ) {
+
+        resultado.style.color =
+        "red";
 
         resultado.innerHTML =
         "⚠️ Digite um valor válido.";
 
-        resultado.style.color = "red";
-
         return;
+
     }
 
     const economia =
@@ -155,14 +187,15 @@ function calcularEconomia() {
 
     resultado.innerHTML =
 
-    `💧 Sua propriedade pode economizar aproximadamente <strong>${economia.toLocaleString("pt-BR")}</strong> litros de água utilizando tecnologias de precisão.`;
+    `💧 Economia estimada: <strong>${economia.toLocaleString("pt-BR")} litros</strong> de água.`;
+
 }
 
 // ======================================
 // QUIZ
 // ======================================
 
-let pontuacaoQuiz = 0;
+let acertosQuiz = 0;
 
 function responderQuiz(correta) {
 
@@ -171,9 +204,11 @@ function responderQuiz(correta) {
         "quizResultado"
     );
 
+    if (!resultado) return;
+
     if (correta) {
 
-        pontuacaoQuiz++;
+        acertosQuiz++;
 
         resultado.innerHTML =
         "✅ Resposta correta!";
@@ -188,11 +223,13 @@ function responderQuiz(correta) {
 
         resultado.style.color =
         "red";
+
     }
+
 }
 
 // ======================================
-// GALERIA ZOOM
+// GALERIA
 // ======================================
 
 document.addEventListener(
@@ -210,72 +247,79 @@ document.addEventListener(
                 "click",
                 () => {
 
-                    if (
-                        img.classList.contains(
-                            "zoom"
-                        )
-                    ) {
+                    imagens.forEach(
+                        foto => {
 
-                        img.classList.remove(
-                            "zoom"
-                        );
-
-                    } else {
-
-                        imagens.forEach(
-                            foto => {
+                            if (
+                                foto !== img
+                            ) {
 
                                 foto.classList.remove(
                                     "zoom"
                                 );
 
                             }
-                        );
 
-                        img.classList.add(
-                            "zoom"
-                        );
-                    }
+                        }
+                    );
+
+                    img.classList.toggle(
+                        "zoom"
+                    );
+
                 }
             );
 
         });
 
+        mostrarCuriosidade();
+
+        mostrarAba(
+            "inicio"
+        );
+
     }
 );
 
 // ======================================
-// MINI GAME DRONE FORTE
+// JOGO DRONE FORTE
 // ======================================
 
 let area;
 let drone;
 
 let pontos = 0;
-
-let posX = 420;
+let posX = 400;
 
 let jogoIniciado = false;
 
 let intervaloPlantas;
 
 // ======================================
+// INICIAR JOGO
+// ======================================
 
 function iniciarJogo() {
 
     if (jogoIniciado) return;
 
-    jogoIniciado = true;
-
     area =
-    document.getElementById(
-        "gameArea"
-    );
+    document.getElementById("gameArea");
 
     drone =
-    document.getElementById(
-        "drone"
-    );
+    document.getElementById("drone");
+
+    if (!area || !drone) {
+        alert("Erro: gameArea ou drone não encontrados.");
+        return;
+    }
+
+    jogoIniciado = true;
+
+    posX = 400;
+
+    drone.style.left =
+    posX + "px";
 
     pontos = 0;
 
@@ -289,7 +333,6 @@ function iniciarJogo() {
     );
 
     if (!recorde) {
-
         recorde = 0;
     }
 
@@ -300,67 +343,86 @@ function iniciarJogo() {
     intervaloPlantas =
     setInterval(
         criarPlanta,
-        1000
+        1200
     );
+
 }
 
 // ======================================
 // MOVIMENTO
+// A = esquerda
+// D = direita
+// F = atirar
 // ======================================
 
-document.addEventListener("keydown", (e) => {
+document.addEventListener(
+    "keydown",
+    (e) => {
 
-    if (!jogoIniciado) return;
+        if (!jogoIniciado) return;
 
-    // ESQUERDA
-    if (e.key === "a" || e.key === "A") {
+        // ESQUERDA
 
-        posX -= 25;
+        if (
+            e.key === "a" ||
+            e.key === "A"
+        ) {
 
-        if (posX < 0) {
-            posX = 0;
+            posX -= 25;
+
+            if (posX < 0) {
+                posX = 0;
+            }
+
+            drone.style.left =
+            posX + "px";
         }
 
-        drone.style.left = posX + "px";
-    }
+        // DIREITA
 
-    // DIREITA
-    if (e.key === "d" || e.key === "D") {
+        if (
+            e.key === "d" ||
+            e.key === "D"
+        ) {
 
-        posX += 25;
+            posX += 25;
 
-        if (posX > 840) {
-            posX = 840;
+            if (posX > 850) {
+                posX = 850;
+            }
+
+            drone.style.left =
+            posX + "px";
         }
 
-        drone.style.left = posX + "px";
+        // TIRO
+
+        if (
+            e.key === "f" ||
+            e.key === "F"
+        ) {
+
+            atirar();
+        }
+
     }
-
-    // ATIRAR
-    if (e.key === "f" || e.key === "F") {
-
-        atirar();
-
-    }
-
-});
+);
 
 // ======================================
-// TIROS
+// TIRO
 // ======================================
 
 function atirar() {
 
     const tiro =
-    document.createElement(
-        "div"
-    );
+    document.createElement("div");
 
-    tiro.className =
-    "tiro";
+    tiro.className = "tiro";
 
-    tiro.innerHTML =
-    "💦💦";
+    tiro.innerHTML = "💦";
+
+    tiro.style.position =
+    "absolute";
 
     tiro.style.left =
     (posX + 20) + "px";
@@ -368,35 +430,35 @@ function atirar() {
     tiro.style.bottom =
     "70px";
 
-    area.appendChild(
-        tiro
-    );
+    tiro.style.fontSize =
+    "30px";
+
+    tiro.style.zIndex =
+    "999";
+
+    area.appendChild(tiro);
+
+    let altura = 70;
 
     const mover =
     setInterval(() => {
 
-        let atual =
-        parseInt(
-            tiro.style.bottom
-        );
+        altura += 15;
 
         tiro.style.bottom =
-        (atual + 15) + "px";
+        altura + "px";
 
-        verificarAcerto(
-            tiro
-        );
+        verificarAcerto(tiro);
 
-        if (atual > 520) {
+        if (altura > 600) {
 
-            clearInterval(
-                mover
-            );
+            clearInterval(mover);
 
             tiro.remove();
         }
 
     }, 20);
+
 }
 
 // ======================================
@@ -405,16 +467,19 @@ function atirar() {
 
 function criarPlanta() {
 
+    if (!jogoIniciado) return;
+
     const planta =
-    document.createElement(
-        "div"
-    );
+    document.createElement("div");
 
     planta.className =
     "planta";
 
     planta.innerHTML =
     "🌱";
+
+    planta.style.position =
+    "absolute";
 
     planta.style.left =
     Math.random() * 850 +
@@ -423,46 +488,48 @@ function criarPlanta() {
     planta.style.top =
     "-50px";
 
-    area.appendChild(
-        planta
-    );
+    planta.style.fontSize =
+    "40px";
+
+    area.appendChild(planta);
 
     const cair =
     setInterval(() => {
 
-        let atual =
+        let topo =
         parseInt(
             planta.style.top
         );
 
+        topo += 4;
+
         planta.style.top =
-        (atual + 4) + "px";
+        topo + "px";
 
-        if (atual > 520) {
+        if (topo > 520) {
 
-            clearInterval(
-                cair
-            );
+            clearInterval(cair);
 
             planta.remove();
+
         }
 
     }, 20);
+
 }
 
 // ======================================
 // COLISÃO
 // ======================================
 
-function verificarAcerto(
-    tiro
-) {
+function verificarAcerto(tiro) {
 
-    document
-    .querySelectorAll(
+    const plantas =
+    document.querySelectorAll(
         ".planta"
-    )
-    .forEach(planta => {
+    );
+
+    plantas.forEach(planta => {
 
         const t =
         tiro.getBoundingClientRect();
@@ -470,25 +537,23 @@ function verificarAcerto(
         const p =
         planta.getBoundingClientRect();
 
-        if (
+        const colidiu =
 
             t.left < p.right &&
             t.right > p.left &&
             t.top < p.bottom &&
-            t.bottom > p.top
+            t.bottom > p.top;
 
-        ) {
+        if (colidiu) {
 
             planta.remove();
-
             tiro.remove();
 
             pontos += 10;
 
             document.getElementById(
                 "pontos"
-            ).innerText =
-            pontos;
+            ).innerText = pontos;
 
             let recorde =
             Number(
@@ -497,19 +562,20 @@ function verificarAcerto(
                 )
             ) || 0;
 
-            if (
-                pontos > recorde
-            ) {
+            if (pontos > recorde) {
+
+                recorde = pontos;
 
                 localStorage.setItem(
                     "recordeDroneForte",
-                    pontos
+                    recorde
                 );
 
                 document.getElementById(
                     "recorde"
                 ).innerText =
-                pontos;
+                recorde;
+
             }
 
         }
@@ -519,18 +585,37 @@ function verificarAcerto(
 }
 
 // ======================================
-// INICIALIZAÇÃO
+// REINICIAR JOGO
 // ======================================
 
-document.addEventListener(
-    "DOMContentLoaded",
-    () => {
+function reiniciarJogo() {
 
-        mostrarCuriosidade();
+    clearInterval(
+        intervaloPlantas
+    );
 
-        mostrarAba(
-            "inicio"
-        );
+    document
+    .querySelectorAll(
+        ".planta"
+    )
+    .forEach(planta => {
 
-    }
-);
+        planta.remove();
+
+    });
+
+    document
+    .querySelectorAll(
+        ".tiro"
+    )
+    .forEach(tiro => {
+
+        tiro.remove();
+
+    });
+
+    jogoIniciado = false;
+
+    iniciarJogo();
+
+}
