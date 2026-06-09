@@ -308,43 +308,42 @@ function iniciarJogo() {
 // MOVIMENTO
 // ======================================
 
-document.addEventListener(
-    "keydown",
-    (e) => {
+document.addEventListener("keydown", (e) => {
 
-        if (!jogoIniciado) return;
+    if (!jogoIniciado) return;
 
-        if (e.key === "a") {
+    // ESQUERDA
+    if (e.key === "a" || e.key === "A") {
 
-            posX -= 25;
+        posX -= 25;
 
-            if (posX < 0) {
-                posX = 0;
-            }
-
-            drone.style.left =
-            posX + "px";
+        if (posX < 0) {
+            posX = 0;
         }
 
-        if (e.key === "d") {
+        drone.style.left = posX + "px";
+    }
 
-            posX += 25;
+    // DIREITA
+    if (e.key === "d" || e.key === "D") {
 
-            if (posX > 840) {
-                posX = 840;
-            }
+        posX += 25;
 
-            drone.style.left =
-            posX + "px";
+        if (posX > 840) {
+            posX = 840;
         }
 
-        if (e.code === "g") {
+        drone.style.left = posX + "px";
+    }
 
-            atirar();
-        }
+    // ATIRAR
+    if (e.key === "f" || e.key === "F") {
+
+        atirar();
 
     }
-);
+
+});
 
 // ======================================
 // TIROS
