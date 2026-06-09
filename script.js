@@ -338,7 +338,7 @@ document.addEventListener(
             posX + "px";
         }
 
-        if (e.code === "f") {
+        if (e.code === "g") {
 
             atirar();
         }
@@ -361,7 +361,7 @@ function atirar() {
     "tiro";
 
     tiro.innerHTML =
-    "💦";
+    "💦💦";
 
     tiro.style.left =
     (posX + 20) + "px";
