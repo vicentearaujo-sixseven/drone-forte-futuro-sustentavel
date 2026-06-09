@@ -314,7 +314,7 @@ document.addEventListener(
 
         if (!jogoIniciado) return;
 
-        if (e.key === "ArrowLeft") {
+        if (e.key === "a") {
 
             posX -= 25;
 
@@ -326,7 +326,7 @@ document.addEventListener(
             posX + "px";
         }
 
-        if (e.key === "ArrowRight") {
+        if (e.key === "d") {
 
             posX += 25;
 
@@ -338,7 +338,7 @@ document.addEventListener(
             posX + "px";
         }
 
-        if (e.code === "Space") {
+        if (e.code === "f") {
 
             atirar();
         }
@@ -361,7 +361,7 @@ function atirar() {
     "tiro";
 
     tiro.innerHTML =
-    "🔺";
+    "💦";
 
     tiro.style.left =
     (posX + 20) + "px";
