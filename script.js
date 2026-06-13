@@ -304,14 +304,23 @@ function iniciarJogo() {
     if (jogoIniciado) return;
 
     area =
-    document.getElementById("gameArea");
+    document.getElementById(
+        "gameArea"
+    );
 
     drone =
-    document.getElementById("drone");
+    document.getElementById(
+        "drone"
+    );
 
     if (!area || !drone) {
-        alert("Erro: gameArea ou drone não encontrados.");
+
+        alert(
+            "Erro: gameArea ou drone não encontrados."
+        );
+
         return;
+
     }
 
     jogoIniciado = true;
@@ -343,16 +352,16 @@ function iniciarJogo() {
     intervaloPlantas =
     setInterval(
         criarPlanta,
-        1200
+        1000
     );
 
 }
 
 // ======================================
 // MOVIMENTO
-// A = esquerda
-// D = direita
-// F = atirar
+// A = ESQUERDA
+// D = DIREITA
+// F = ATIRAR
 // ======================================
 
 document.addEventListener(
@@ -403,6 +412,7 @@ document.addEventListener(
         ) {
 
             atirar();
+
         }
 
     }
@@ -415,28 +425,25 @@ document.addEventListener(
 function atirar() {
 
     const tiro =
-    document.createElement("div");
+    document.createElement(
+        "div"
+    );
 
-    tiro.className = "tiro";
+    tiro.className =
+    "tiro";
 
-    tiro.innerHTML = "💦";
-
-    tiro.style.position =
-    "absolute";
+    tiro.innerHTML =
+    "💦";
 
     tiro.style.left =
-    (posX + 20) + "px";
+    (posX + 25) + "px";
 
     tiro.style.bottom =
     "70px";
 
-    tiro.style.fontSize =
-    "30px";
-
-    tiro.style.zIndex =
-    "999";
-
-    area.appendChild(tiro);
+    area.appendChild(
+        tiro
+    );
 
     let altura = 70;
 
@@ -448,13 +455,19 @@ function atirar() {
         tiro.style.bottom =
         altura + "px";
 
-        verificarAcerto(tiro);
+        verificarAcerto(
+            tiro,
+            mover
+        );
 
         if (altura > 600) {
 
-            clearInterval(mover);
+            clearInterval(
+                mover
+            );
 
             tiro.remove();
+
         }
 
     }, 20);
@@ -462,7 +475,7 @@ function atirar() {
 }
 
 // ======================================
-// PLANTAS
+// CRIAR PLANTAS
 // ======================================
 
 function criarPlanta() {
@@ -470,16 +483,15 @@ function criarPlanta() {
     if (!jogoIniciado) return;
 
     const planta =
-    document.createElement("div");
+    document.createElement(
+        "div"
+    );
 
     planta.className =
     "planta";
 
     planta.innerHTML =
     "🌱";
-
-    planta.style.position =
-    "absolute";
 
     planta.style.left =
     Math.random() * 850 +
@@ -488,10 +500,9 @@ function criarPlanta() {
     planta.style.top =
     "-50px";
 
-    planta.style.fontSize =
-    "40px";
-
-    area.appendChild(planta);
+    area.appendChild(
+        planta
+    );
 
     const cair =
     setInterval(() => {
@@ -506,9 +517,11 @@ function criarPlanta() {
         planta.style.top =
         topo + "px";
 
-        if (topo > 520) {
+        if (topo > 550) {
 
-            clearInterval(cair);
+            clearInterval(
+                cair
+            );
 
             planta.remove();
 
@@ -522,7 +535,10 @@ function criarPlanta() {
 // COLISÃO
 // ======================================
 
-function verificarAcerto(tiro) {
+function verificarAcerto(
+    tiro,
+    mover
+) {
 
     const plantas =
     document.querySelectorAll(
@@ -546,6 +562,10 @@ function verificarAcerto(tiro) {
 
         if (colidiu) {
 
+            clearInterval(
+                mover
+            );
+
             planta.remove();
             tiro.remove();
 
@@ -553,7 +573,8 @@ function verificarAcerto(tiro) {
 
             document.getElementById(
                 "pontos"
-            ).innerText = pontos;
+            ).innerText =
+            pontos;
 
             let recorde =
             Number(
@@ -562,19 +583,19 @@ function verificarAcerto(tiro) {
                 )
             ) || 0;
 
-            if (pontos > recorde) {
-
-                recorde = pontos;
+            if (
+                pontos > recorde
+            ) {
 
                 localStorage.setItem(
                     "recordeDroneForte",
-                    recorde
+                    pontos
                 );
 
                 document.getElementById(
                     "recorde"
                 ).innerText =
-                recorde;
+                pontos;
 
             }
 
@@ -619,3 +640,84 @@ function reiniciarJogo() {
     iniciarJogo();
 
 }
+
+// ======================================
+// MODO ESCURO / CLARO
+// ======================================
+
+function alternarTema() {
+
+    document.body.classList.toggle(
+        "dark"
+    );
+
+    const botao =
+    document.getElementById(
+        "botaoTema"
+    );
+
+    if (
+        document.body.classList.contains(
+            "dark"
+        )
+    ) {
+
+        botao.innerHTML =
+        "☀️ Modo Claro";
+
+        localStorage.setItem(
+            "temaDroneForte",
+            "dark"
+        );
+
+    } else {
+
+        botao.innerHTML =
+        "🌙 Modo Escuro";
+
+        localStorage.setItem(
+            "temaDroneForte",
+            "light"
+        );
+
+    }
+
+}
+
+// ======================================
+// CARREGAMENTO INICIAL
+// ======================================
+
+document.addEventListener(
+    "DOMContentLoaded",
+    () => {
+
+        const tema =
+        localStorage.getItem(
+            "temaDroneForte"
+        );
+
+        if (
+            tema === "dark"
+        ) {
+
+            document.body.classList.add(
+                "dark"
+            );
+
+            const botao =
+            document.getElementById(
+                "botaoTema"
+            );
+
+            if (botao) {
+
+                botao.innerHTML =
+                "☀️ Modo Claro";
+
+            }
+
+        }
+
+    }
+);

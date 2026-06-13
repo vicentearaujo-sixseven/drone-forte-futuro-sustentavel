@@ -3,22 +3,27 @@
 
 <head>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
 
-<title>🚁 Drone Forte - Futuro Sustentável</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link rel="stylesheet" href="style.css">
+    <title>🚁 Drone Forte - Futuro Sustentável</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="style.css">
 
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 </head>
 
 <body>
+
+<!-- ===================================== -->
+<!-- CABEÇALHO -->
+<!-- ===================================== -->
 
 <header>
 
@@ -33,6 +38,10 @@
     </div>
 
 </header>
+
+<!-- ===================================== -->
+<!-- MENU -->
+<!-- ===================================== -->
 
 <nav class="menu">
 
@@ -68,11 +77,15 @@
         🎮 Jogo
     </button>
 
+    <button onclick="alternarTema()" id="botaoTema">
+        🌙 Modo Escuro
+    </button>
+
 </nav>
 
-<!-- ================================= -->
-<!-- INÍCIO -->
-<!-- ================================= -->
+<!-- ===================================== -->
+<!-- ABA INÍCIO -->
+<!-- ===================================== -->
 
 <section id="inicio" class="aba ativa">
 
@@ -81,30 +94,28 @@
         <div class="hero-texto">
 
             <h2>
-                Drone Forte: O Futuro da Agricultura Sustentável
+                O Futuro da Agricultura Está no Céu 🚁
             </h2>
 
             <p>
 
-                O projeto Drone Forte mostra como a tecnologia pode ajudar
-                produtores rurais a produzir mais alimentos, economizar recursos
-                e proteger o meio ambiente.
+                O Drone Forte é um projeto criado para demonstrar como a
+                tecnologia pode transformar a agricultura moderna.
 
             </p>
 
             <p>
 
-                Os drones agrícolas são ferramentas modernas que permitem
-                monitorar lavouras, identificar problemas rapidamente e melhorar
-                a tomada de decisões no campo.
+                Utilizando drones agrícolas, produtores conseguem monitorar
+                plantações, economizar água, reduzir desperdícios e aumentar
+                a produtividade.
 
             </p>
 
             <p>
 
-                Através da agricultura de precisão, é possível utilizar menos
-                água, reduzir desperdícios e aumentar a produtividade de forma
-                sustentável.
+                A agricultura de precisão é uma das maiores revoluções do
+                campo e permite produzir mais utilizando menos recursos.
 
             </p>
 
@@ -116,6 +127,8 @@
 
     </div>
 
+    <!-- ESTATÍSTICAS -->
+
     <div class="estatisticas">
 
         <div class="numero">
@@ -123,7 +136,7 @@
             <h3>80%</h3>
 
             <p>
-                Redução de desperdícios em aplicações inteligentes.
+                Redução de desperdícios.
             </p>
 
         </div>
@@ -133,7 +146,7 @@
             <h3>50%</h3>
 
             <p>
-                Economia de água com monitoramento de precisão.
+                Economia de água.
             </p>
 
         </div>
@@ -143,52 +156,49 @@
             <h3>100%</h3>
 
             <p>
-                Mais controle e eficiência na produção rural.
+                Mais eficiência agrícola.
             </p>
 
         </div>
 
     </div>
 
+    <!-- CURIOSIDADE -->
+
     <div class="curiosidade-box">
 
-        <h2>💡 Curiosidade do Dia</h2>
+        <h2>💡 Curiosidade</h2>
 
-        <p id="curiosidadeDia">
-
-        </p>
+        <p id="curiosidadeDia"></p>
 
     </div>
 
+    <!-- INTRODUÇÃO -->
+
     <div class="introducao">
 
-        <h2>Por que o Drone Forte é importante?</h2>
+        <h2>
+            Por que os drones são importantes?
+        </h2>
 
         <p>
 
-            A agricultura é responsável por alimentar bilhões de pessoas em
-            todo o mundo.
+            Os drones agrícolas ajudam produtores rurais a monitorar grandes
+            áreas em poucos minutos.
 
         </p>
 
         <p>
 
-            Porém, produzir alimentos exige o uso de água, energia e diversos
-            recursos naturais.
+            Eles conseguem identificar pragas, falhas de irrigação e
+            problemas no desenvolvimento das plantações.
 
         </p>
 
         <p>
 
-            Por isso, tecnologias como os drones agrícolas se tornam cada vez
-            mais importantes para garantir uma produção eficiente e sustentável.
-
-        </p>
-
-        <p>
-
-            O Drone Forte representa a união entre inovação tecnológica e
-            preservação ambiental.
+            Além disso, contribuem para uma agricultura mais sustentável,
+            reduzindo desperdícios e protegendo o meio ambiente.
 
         </p>
 
@@ -196,13 +206,13 @@
 
 </section>
 
-<!-- ================================= -->
-<!-- DRONES -->
-<!-- ================================= -->
+<!-- ===================================== -->
+<!-- ABA DRONES -->
+<!-- ===================================== -->
 
 <section id="drones" class="aba">
 
-    <h2>🚁 O Que São Drones Agrícolas?</h2>
+    <h2>🚁 O que são Drones Agrícolas?</h2>
 
     <img
     class="imagem-principal"
@@ -212,18 +222,18 @@
     <p>
 
         Os drones agrícolas são aeronaves não tripuladas utilizadas para
-        monitorar plantações, coletar dados e auxiliar produtores rurais.
+        monitorar e analisar lavouras.
 
     </p>
 
     <p>
 
-        Eles conseguem sobrevoar grandes áreas em poucos minutos,
-        fornecendo informações detalhadas sobre a situação das lavouras.
+        Eles capturam imagens aéreas, coletam dados e ajudam os produtores
+        a tomar decisões mais inteligentes.
 
     </p>
 
-    <h3>Principais Aplicações</h3>
+    <h3>Principais Funções</h3>
 
     <ul>
 
@@ -233,11 +243,11 @@
 
         <li>🐛 Identificação de pragas</li>
 
-        <li>🌾 Análise do desenvolvimento das culturas</li>
-
         <li>📊 Coleta de dados agrícolas</li>
 
-        <li>🛰️ Mapeamento da propriedade rural</li>
+        <li>🛰️ Mapeamento do terreno</li>
+
+        <li>🚜 Agricultura de precisão</li>
 
     </ul>
 
@@ -248,33 +258,27 @@
             <h4>📷 Câmeras Inteligentes</h4>
 
             <p>
-
                 Capturam imagens detalhadas das lavouras.
-
             </p>
 
         </div>
 
         <div class="info-card">
 
-            <h4>📡 Sensores</h4>
+            <h4>📡 Sensores Avançados</h4>
 
             <p>
-
-                Detectam problemas antes que se tornem graves.
-
+                Detectam problemas antes que eles se tornem visíveis.
             </p>
 
         </div>
 
         <div class="info-card">
 
-            <h4>🛰️ GPS</h4>
+            <h4>🛰️ GPS de Precisão</h4>
 
             <p>
-
                 Permite monitoramento extremamente preciso.
-
             </p>
 
         </div>
@@ -284,9 +288,7 @@
             <h4>🤖 Automação</h4>
 
             <p>
-
-                Auxilia na tomada de decisões inteligentes.
-
+                Auxilia na tomada de decisões rápidas.
             </p>
 
         </div>
@@ -295,19 +297,21 @@
 
     <div class="destaque">
 
-        <h3>🚀 Agricultura de Precisão</h3>
+        <h3>
+            🌾 Agricultura de Precisão
+        </h3>
 
         <p>
 
-            A agricultura de precisão utiliza tecnologias modernas para aplicar
-            recursos apenas onde são necessários.
+            A agricultura de precisão utiliza tecnologias modernas para
+            aplicar recursos apenas onde são necessários.
 
         </p>
 
         <p>
 
-            Isso reduz desperdícios, melhora a produtividade e ajuda a preservar
-            o meio ambiente.
+            Isso reduz custos, aumenta a produtividade e protege o meio
+            ambiente.
 
         </p>
 
@@ -315,9 +319,9 @@
 
 </section>
 
-<!-- ================================= -->
-<!-- BENEFÍCIOS -->
-<!-- ================================= -->
+<!-- ===================================== -->
+<!-- ABA BENEFÍCIOS -->
+<!-- ===================================== -->
 
 <section id="beneficios" class="aba">
 
@@ -325,165 +329,69 @@
 
     <p class="texto-centro">
 
-        Os drones agrícolas trazem diversas vantagens para os produtores
-        rurais e para o meio ambiente.
+        Os drones agrícolas oferecem inúmeras vantagens para os produtores e para o meio ambiente.
 
     </p>
 
     <div class="cards-beneficios">
 
         <div class="card">
-
-            <h3>🌾 Monitoramento das Plantações</h3>
-
-            <p>
-
-                Permite observar grandes áreas agrícolas em poucos minutos,
-                identificando problemas rapidamente.
-
-            </p>
-
-        </div>
-
-        <div class="card">
-
             <h3>💧 Economia de Água</h3>
-
             <p>
-
-                A irrigação pode ser realizada de forma mais inteligente,
-                evitando desperdícios.
-
+                Identifica áreas que realmente precisam de irrigação.
             </p>
-
         </div>
 
         <div class="card">
-
-            <h3>🌎 Menor Impacto Ambiental</h3>
-
+            <h3>🌾 Mais Produção</h3>
             <p>
-
-                Redução no uso excessivo de recursos naturais e produtos
-                agrícolas.
-
+                Monitoramento constante aumenta a produtividade.
             </p>
-
         </div>
 
         <div class="card">
-
-            <h3>🚜 Maior Produtividade</h3>
-
-            <p>
-
-                O produtor consegue tomar decisões mais rápidas e eficientes.
-
-            </p>
-
-        </div>
-
-        <div class="card">
-
             <h3>🐛 Controle de Pragas</h3>
-
             <p>
-
-                Problemas são identificados antes de causar grandes prejuízos.
-
+                Detecta problemas rapidamente.
             </p>
-
         </div>
 
         <div class="card">
-
-            <h3>📊 Coleta de Dados</h3>
-
+            <h3>💰 Menos Gastos</h3>
             <p>
-
-                Informações detalhadas ajudam na gestão da propriedade.
-
+                Reduz desperdícios de recursos.
             </p>
-
         </div>
 
         <div class="card">
-
-            <h3>⏱️ Economia de Tempo</h3>
-
+            <h3>🌎 Sustentabilidade</h3>
             <p>
-
-                Um drone pode realizar em minutos tarefas que levariam horas.
-
+                Menor impacto ambiental.
             </p>
-
         </div>
 
         <div class="card">
-
-            <h3>💰 Redução de Custos</h3>
-
+            <h3>📊 Mais Informações</h3>
             <p>
-
-                Menos desperdício significa mais lucro para o produtor.
-
+                Dados precisos para melhores decisões.
             </p>
-
         </div>
-
-    </div>
-
-    <div class="comparacao">
-
-        <h3>
-            Comparação Entre Agricultura Tradicional e Agricultura de Precisão
-        </h3>
-
-        <table>
-
-            <tr>
-                <th>Agricultura Tradicional</th>
-                <th>Agricultura de Precisão</th>
-            </tr>
-
-            <tr>
-                <td>Monitoramento Manual</td>
-                <td>Monitoramento por Drones</td>
-            </tr>
-
-            <tr>
-                <td>Maior Desperdício</td>
-                <td>Uso Inteligente dos Recursos</td>
-            </tr>
-
-            <tr>
-                <td>Menos Informações</td>
-                <td>Dados em Tempo Real</td>
-            </tr>
-
-            <tr>
-                <td>Maior Custo Operacional</td>
-                <td>Maior Eficiência</td>
-            </tr>
-
-        </table>
 
     </div>
 
 </section>
 
-<!-- ================================= -->
-<!-- SIMULADOR -->
-<!-- ================================= -->
+<!-- ===================================== -->
+<!-- ABA SIMULADOR -->
+<!-- ===================================== -->
 
 <section id="simulador" class="aba">
 
-    <h2>💧 Simulador de Economia de Água</h2>
+    <h2>💧 Simulador de Economia</h2>
 
     <p class="texto-centro">
 
-        Descubra quanto sua propriedade poderia economizar utilizando
-        tecnologias de precisão.
+        Descubra quanto de água pode ser economizado utilizando drones agrícolas.
 
     </p>
 
@@ -495,68 +403,28 @@
         placeholder="Digite os hectares">
 
         <button onclick="calcularEconomia()">
-            Calcular Economia
+            Calcular
         </button>
 
     </div>
 
     <div id="resultado"></div>
 
-    <div class="explicacao">
-
-        <h3>📈 Como funciona?</h3>
-
-        <p>
-
-            O cálculo utiliza uma estimativa simples baseada em tecnologias
-            modernas de irrigação e monitoramento.
-
-        </p>
-
-        <p>
-
-            Quanto maior a área monitorada por drones, maior pode ser a
-            economia de água e recursos.
-
-        </p>
-
-    </div>
-
-    <div class="destaque">
-
-        <h3>🌎 Sustentabilidade</h3>
-
-        <p>
-
-            Economizar água significa proteger um dos recursos mais importantes
-            para a vida e para a agricultura.
-
-        </p>
-
-    </div>
-
 </section>
 
-<!-- ================================= -->
-<!-- QUIZ -->
-<!-- ================================= -->
+<!-- ===================================== -->
+<!-- ABA QUIZ -->
+<!-- ===================================== -->
 
 <section id="quiz" class="aba">
 
     <h2>🧠 Quiz Drone Forte</h2>
 
-    <p class="texto-centro">
-
-        Teste seus conhecimentos sobre agricultura sustentável.
-
-    </p>
-
     <div class="quiz-box">
 
         <h3>
 
-            Qual tecnologia ajuda a reduzir o desperdício de defensivos
-            agrícolas?
+            Qual tecnologia ajuda a economizar água na agricultura?
 
         </h3>
 
@@ -569,64 +437,22 @@
         </button>
 
         <button onclick="responderQuiz(false)">
-            🔨 Arado Manual
+            🔨 Ferramenta Manual
         </button>
 
         <div id="quizResultado"></div>
 
     </div>
 
-    <div class="quiz-info">
-
-        <h3>📚 Você Sabia?</h3>
-
-        <p>
-
-            Os drones conseguem aplicar produtos de maneira muito mais precisa,
-            reduzindo desperdícios e impactos ambientais.
-
-        </p>
-
-    </div>
-
-    <div class="quiz-box">
-
-        <h3>
-
-            O principal objetivo da agricultura de precisão é:
-
-        </h3>
-
-        <button onclick="responderQuiz(false)">
-            Gastar Mais Recursos
-        </button>
-
-        <button onclick="responderQuiz(true)">
-            Utilizar Recursos de Forma Inteligente
-        </button>
-
-        <button onclick="responderQuiz(false)">
-            Eliminar Toda Tecnologia
-        </button>
-
-    </div>
-
 </section>
 
-<!-- ================================= -->
-<!-- GALERIA -->
-<!-- ================================= -->
+<!-- ===================================== -->
+<!-- ABA GALERIA -->
+<!-- ===================================== -->
 
 <section id="galeria" class="aba">
 
     <h2>📸 Galeria Drone Forte</h2>
-
-    <p class="texto-centro">
-
-        Algumas imagens que representam a agricultura moderna,
-        a sustentabilidade e a inovação tecnológica no campo.
-
-    </p>
 
     <div class="galeria">
 
@@ -640,116 +466,74 @@
 
         <img src="https://images.unsplash.com/photo-1473448912268-2022ce9509d8?w=1200" alt="Sustentabilidade">
 
-        <img src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?w=1200" alt="Produção Rural">
+        <img src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?w=1200" alt="Produção">
 
     </div>
 
 </section>
 
-<!-- ================================= -->
-<!-- FUTURO -->
-<!-- ================================= -->
+<!-- ===================================== -->
+<!-- ABA FUTURO -->
+<!-- ===================================== -->
 
 <section id="futuro" class="aba">
 
-    <h2>🚀 O Futuro da Agricultura</h2>
-
-    <img
-    class="imagem-principal"
-    src="https://images.unsplash.com/photo-1523741543316-beb7fc7023d8?w=1600"
-    alt="Futuro da Agricultura">
+    <h2>🚀 Futuro da Agricultura</h2>
 
     <div class="futuro-box">
 
         <h3>🤖 Inteligência Artificial</h3>
 
         <p>
+            Sistemas inteligentes auxiliarão produtores rurais.
+        </p>
 
-            Sistemas inteligentes serão capazes de identificar doenças,
-            pragas e necessidades das plantas automaticamente.
+        <h3>🛰️ Sensores Avançados</h3>
 
+        <p>
+            Monitoramento em tempo real das plantações.
         </p>
 
         <h3>🚁 Drones Autônomos</h3>
 
         <p>
-
-            Os drones do futuro realizarão missões de monitoramento e análise
-            praticamente sem intervenção humana.
-
+            Operações cada vez mais automatizadas.
         </p>
 
-        <h3>📡 Sensores Avançados</h3>
+        <h3>🌎 Produção Sustentável</h3>
 
         <p>
-
-            Sensores cada vez mais modernos ajudarão produtores a tomar
-            decisões com maior precisão.
-
-        </p>
-
-        <h3>🌎 Sustentabilidade</h3>
-
-        <p>
-
-            O objetivo é produzir mais alimentos utilizando menos recursos
-            naturais e reduzindo impactos ambientais.
-
-        </p>
-
-    </div>
-
-    <div class="conclusao">
-
-        <h3>Conclusão</h3>
-
-        <p>
-
-            O projeto Drone Forte demonstra que a tecnologia pode ser uma
-            grande aliada da agricultura sustentável.
-
-        </p>
-
-        <p>
-
-            Com drones agrícolas, produtores conseguem aumentar a
-            produtividade e preservar o meio ambiente ao mesmo tempo.
-
+            Mais alimentos utilizando menos recursos.
         </p>
 
     </div>
 
 </section>
 
-<!-- ================================= -->
-<!-- JOGO -->
-<!-- ================================= -->
+<!-- ===================================== -->
+<!-- ABA JOGO -->
+<!-- ===================================== -->
 
 <section id="jogo" class="aba">
 
-    <h2>🎮 Mini Game Drone Forte</h2>
+    <h2>🎮 Drone Forte Game</h2>
 
     <p class="texto-centro">
 
-        Controle o drone e elimine as plantas invasoras para proteger
-        a lavoura.
+        Controle o drone e elimine as plantas invasoras.
 
     </p>
 
     <div class="hud">
 
         <div class="hud-item">
-
             🏆 Pontos:
             <span id="pontos">0</span>
-
         </div>
 
         <div class="hud-item">
-
             ⭐ Recorde:
             <span id="recorde">0</span>
-
         </div>
 
     </div>
@@ -757,9 +541,7 @@
     <div id="gameArea">
 
         <div id="drone">
-
             🚁
-
         </div>
 
     </div>
@@ -767,76 +549,47 @@
     <div class="game-buttons">
 
         <button onclick="iniciarJogo()">
-
             ▶ Iniciar Jogo
-
         </button>
 
     </div>
 
     <div class="instrucoes">
 
-        <h3>🎯 Como Jogar</h3>
+        <h3>🎯 Controles</h3>
 
-        <p>
+        <p>🅰️ A = Mover para esquerda</p>
 
-            ← → para mover o drone.
+        <p>🅳 D = Mover para direita</p>
 
-        </p>
+        <p>🅵 F = Atirar água 💦</p>
 
-        <p>
-
-            Espaço para atirar.
-
-        </p>
-
-        <p>
-
-            Acerte as plantas 🌱 para ganhar pontos.
-
-        </p>
+        <p>🌱 Acerte as plantas para ganhar pontos.</p>
 
     </div>
 
 </section>
 
-<!-- ================================= -->
+<!-- ===================================== -->
 <!-- RODAPÉ -->
-<!-- ================================= -->
+<!-- ===================================== -->
 
 <footer>
 
     <h3>
-
-        🚁 Drone Forte, Futuro Sustentável
-
+        🚁 Drone Forte - Futuro Sustentável
     </h3>
 
     <p>
-
         Projeto desenvolvido para o Agrinho 2026.
-
     </p>
 
     <p>
-
-        Tema:
-        Tecnologia, Sustentabilidade e Inovação no Campo.
-
+        Tecnologia • Sustentabilidade • Inovação
     </p>
 
     <p>
-
-        Tecnologias Utilizadas:
-        HTML, CSS e JavaScript.
-
-    </p>
-
-    <p>
-
-        Desenvolvido por:
-        Seu Nome Aqui
-
+        HTML • CSS • JavaScript
     </p>
 
 </footer>

@@ -17,6 +17,7 @@ body{
     background:#f4f8f3;
     color:#333;
     min-height:100vh;
+    transition:.4s;
 }
 
 /* ===================================
@@ -24,25 +25,37 @@ body{
 =================================== */
 
 header{
-    background:linear-gradient(
-    135deg,
-    #14532d,
-    #22c55e
+
+    background:
+    linear-gradient(
+        135deg,
+        #14532d,
+        #22c55e
     );
 
     color:white;
+
     text-align:center;
+
     padding:60px 20px;
-    box-shadow:0 5px 20px rgba(0,0,0,.2);
+
+    box-shadow:
+    0 5px 20px rgba(0,0,0,.2);
+
 }
 
 .logo-area h1{
-    font-size:3.2rem;
+
+    font-size:3rem;
+
     margin-bottom:10px;
+
 }
 
 .logo-area p{
+
     font-size:1.2rem;
+
 }
 
 /* ===================================
@@ -50,32 +63,56 @@ header{
 =================================== */
 
 .menu{
+
     display:flex;
+
     flex-wrap:wrap;
+
     justify-content:center;
-    gap:12px;
+
+    gap:10px;
+
     padding:15px;
+
     background:white;
+
     position:sticky;
+
     top:0;
+
     z-index:999;
-    box-shadow:0 3px 15px rgba(0,0,0,.1);
+
+    box-shadow:
+    0 3px 15px rgba(0,0,0,.1);
+
 }
 
 .menu button{
+
     border:none;
+
     background:#22c55e;
+
     color:white;
+
     padding:12px 22px;
+
     border-radius:12px;
+
     cursor:pointer;
+
     font-weight:600;
+
     transition:.3s;
+
 }
 
 .menu button:hover{
+
     transform:translateY(-4px);
+
     background:#15803d;
+
 }
 
 /* ===================================
@@ -83,23 +120,31 @@ header{
 =================================== */
 
 .aba{
+
     display:none;
+
     animation:fade .5s ease;
+
 }
 
 .aba.ativa{
+
     display:block;
+
 }
 
 @keyframes fade{
+
     from{
         opacity:0;
         transform:translateY(20px);
     }
+
     to{
         opacity:1;
         transform:translateY(0);
     }
+
 }
 
 /* ===================================
@@ -107,19 +152,27 @@ header{
 =================================== */
 
 section{
+
     padding:50px 8%;
+
 }
 
 section h2{
+
     text-align:center;
+
     color:#166534;
+
     margin-bottom:25px;
+
     font-size:2.3rem;
+
 }
 
 .texto-centro{
+
     text-align:center;
-    margin-bottom:25px;
+
 }
 
 /* ===================================
@@ -127,31 +180,44 @@ section h2{
 =================================== */
 
 .hero{
+
     display:flex;
-    align-items:center;
+
     justify-content:center;
+
+    align-items:center;
+
     gap:40px;
+
     flex-wrap:wrap;
+
 }
 
 .hero img{
+
     width:550px;
+
     max-width:100%;
+
     border-radius:20px;
-    box-shadow:0 15px 30px rgba(0,0,0,.15);
+
+    box-shadow:
+    0 15px 30px rgba(0,0,0,.15);
+
 }
 
 .hero-texto{
-    max-width:600px;
-}
 
-.hero-texto h2{
-    text-align:left;
+    max-width:600px;
+
 }
 
 .hero-texto p{
-    margin-bottom:15px;
+
     line-height:1.8;
+
+    margin-bottom:15px;
+
 }
 
 /* ===================================
@@ -159,172 +225,143 @@ section h2{
 =================================== */
 
 .estatisticas{
+
     display:flex;
-    justify-content:center;
+
     flex-wrap:wrap;
+
+    justify-content:center;
+
     gap:25px;
+
     margin-top:40px;
+
 }
 
 .numero{
-    width:260px;
+
+    width:250px;
+
     background:white;
+
     padding:25px;
+
     border-radius:20px;
+
     text-align:center;
-    box-shadow:0 10px 20px rgba(0,0,0,.08);
+
+    box-shadow:
+    0 10px 20px rgba(0,0,0,.08);
+
     transition:.3s;
+
 }
 
 .numero:hover{
+
     transform:translateY(-8px);
+
 }
 
 .numero h3{
+
     color:#22c55e;
-    font-size:2.5rem;
-    margin-bottom:10px;
+
+    font-size:2.4rem;
+
 }
 
 /* ===================================
-   INTRODUÇÃO
+   CAIXAS
 =================================== */
 
-.introducao,
 .curiosidade-box,
+.introducao,
 .destaque,
-.explicacao,
-.conclusao,
-.quiz-info,
-.futuro-box{
+.futuro-box,
+.instrucoes{
+
     background:white;
+
     padding:30px;
+
     border-radius:20px;
+
     margin-top:30px;
-    box-shadow:0 10px 20px rgba(0,0,0,.08);
-}
 
-.introducao p,
-.destaque p,
-.explicacao p,
-.conclusao p,
-.futuro-box p{
-    margin-bottom:15px;
-    line-height:1.8;
-}
+    box-shadow:
+    0 10px 20px rgba(0,0,0,.08);
 
-/* ===================================
-   IMAGEM PRINCIPAL
-=================================== */
+}
 
 .imagem-principal{
+
     width:100%;
+
     max-width:1000px;
+
     display:block;
+
     margin:20px auto;
+
     border-radius:20px;
-    box-shadow:0 15px 30px rgba(0,0,0,.12);
+
+    box-shadow:
+    0 15px 30px rgba(0,0,0,.12);
+
 }
 
 /* ===================================
-   LISTAS
+   CARDS DE BENEFÍCIOS
 =================================== */
 
-ul{
-    margin:20px 0 20px 30px;
-}
-
-li{
-    margin-bottom:12px;
-}
-
-/* ===================================
-   CARDS INFO
-=================================== */
-
+.cards-beneficios,
 .cards-info{
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:center;
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(250px,1fr));
+
     gap:25px;
+
     margin-top:30px;
+
 }
 
+.card,
 .info-card{
-    width:260px;
+
     background:white;
+
     padding:25px;
+
     border-radius:20px;
+
     text-align:center;
-    box-shadow:0 10px 20px rgba(0,0,0,.08);
+
+    box-shadow:
+    0 10px 20px rgba(0,0,0,.08);
+
     transition:.3s;
+
 }
 
+.card:hover,
 .info-card:hover{
-    transform:translateY(-8px);
+
+    transform:
+    translateY(-8px);
+
 }
 
+.card h3,
 .info-card h4{
-    color:#15803d;
-    margin-bottom:10px;
-}
 
-/* ===================================
-   BENEFÍCIOS
-=================================== */
+    color:#16a34a;
 
-.cards-beneficios{
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:center;
-    gap:25px;
-}
+    margin-bottom:15px;
 
-.card{
-    width:280px;
-    background:white;
-    padding:25px;
-    border-radius:20px;
-    box-shadow:0 10px 20px rgba(0,0,0,.08);
-    transition:.3s;
-}
-
-.card:hover{
-    transform:translateY(-10px);
-    box-shadow:0 15px 30px rgba(0,0,0,.15);
-}
-
-.card h3{
-    color:#166534;
-    margin-bottom:12px;
-}
-
-/* ===================================
-   TABELA
-=================================== */
-
-.comparacao{
-    margin-top:40px;
-}
-
-table{
-    width:100%;
-    border-collapse:collapse;
-    background:white;
-    border-radius:20px;
-    overflow:hidden;
-    box-shadow:0 10px 20px rgba(0,0,0,.08);
-}
-
-th{
-    background:#22c55e;
-    color:white;
-    padding:15px;
-}
-
-td{
-    padding:15px;
-    border-bottom:1px solid #eee;
 }
 
 /* ===================================
@@ -332,41 +369,67 @@ td{
 =================================== */
 
 .simulador-box{
+
     display:flex;
-    flex-wrap:wrap;
+
     justify-content:center;
+
     gap:15px;
-    margin:30px 0;
+
+    flex-wrap:wrap;
+
+    margin-top:30px;
+
 }
 
 .simulador-box input{
-    width:300px;
-    padding:15px;
+
+    padding:14px;
+
+    width:250px;
+
     border:2px solid #22c55e;
+
     border-radius:12px;
-    outline:none;
+
+    font-size:1rem;
+
 }
 
 .simulador-box button{
+
+    padding:14px 25px;
+
     border:none;
-    background:#22c55e;
-    color:white;
-    padding:15px 25px;
+
     border-radius:12px;
+
+    background:#22c55e;
+
+    color:white;
+
+    font-weight:bold;
+
     cursor:pointer;
-    font-weight:600;
-    transition:.3s;
+
 }
 
 .simulador-box button:hover{
+
     background:#15803d;
+
 }
 
 #resultado{
+
     text-align:center;
-    font-size:1.3rem;
-    font-weight:700;
-    margin-top:20px;
+
+    margin-top:25px;
+
+    font-size:1.2rem;
+
+    font-weight:bold;
+
 }
 
 /* ===================================
@@ -374,33 +437,62 @@ td{
 =================================== */
 
 .quiz-box{
+
     background:white;
+
+    max-width:700px;
+
+    margin:auto;
+
     padding:30px;
+
     border-radius:20px;
+
     text-align:center;
-    margin-top:30px;
-    box-shadow:0 10px 20px rgba(0,0,0,.08);
+
+    box-shadow:
+    0 10px 20px rgba(0,0,0,.08);
+
 }
 
 .quiz-box button{
-    margin:10px;
+
+    display:block;
+
+    width:100%;
+
+    margin:10px 0;
+
+    padding:14px;
+
     border:none;
-    background:#22c55e;
-    color:white;
-    padding:12px 20px;
+
     border-radius:12px;
+
     cursor:pointer;
-    transition:.3s;
+
+    background:#22c55e;
+
+    color:white;
+
+    font-size:1rem;
+
 }
 
 .quiz-box button:hover{
+
     background:#15803d;
+
 }
 
 #quizResultado{
+
     margin-top:20px;
-    font-size:1.2rem;
-    font-weight:700;
+
+    font-weight:bold;
+
+    font-size:1.1rem;
+
 }
 
 /* ===================================
@@ -408,90 +500,91 @@ td{
 =================================== */
 
 .galeria{
+
     display:grid;
+
     grid-template-columns:
-    repeat(auto-fit,minmax(280px,1fr));
+    repeat(auto-fit,minmax(250px,1fr));
+
     gap:20px;
+
 }
 
 .galeria img{
+
     width:100%;
+
     height:250px;
+
     object-fit:cover;
+
     border-radius:20px;
+
     cursor:pointer;
-    transition:.4s;
-    box-shadow:0 10px 20px rgba(0,0,0,.1);
+
+    transition:.3s;
+
 }
 
 .galeria img:hover{
+
     transform:scale(1.05);
+
 }
 
-.galeria img.zoom{
-    transform:scale(1.15);
-    z-index:50;
+.zoom{
+
+    transform:scale(1.12);
+
+    z-index:100;
+
 }
 
 /* ===================================
-   JOGO
+   GAME
 =================================== */
-
-.hud{
-    display:flex;
-    justify-content:center;
-    gap:40px;
-    margin:20px 0;
-}
-
-.hud-item{
-    background:white;
-    padding:15px 25px;
-    border-radius:15px;
-    font-weight:700;
-    box-shadow:0 5px 15px rgba(0,0,0,.1);
-}
 
 #gameArea{
 
     width:100%;
-    max-width:900px;
 
-    height:500px;
+    max-width:950px;
 
-    margin:auto;
+    height:550px;
 
-    background:
-    linear-gradient(
-        #87ceeb,
-        #c8f7c5
-    );
-
-    border-radius:20px;
-
-    border:4px solid #15803d;
-
-    overflow:hidden;
+    margin:30px auto;
 
     position:relative;
 
-    box-shadow:
-    0 15px 30px rgba(0,0,0,.15);
+    overflow:hidden;
+
+    border-radius:20px;
+
+    border:4px solid #16a34a;
+
+    background:
+    linear-gradient(
+        to bottom,
+        #87ceeb,
+        #d9f99d
+    );
+
 }
 
 #drone{
 
     position:absolute;
 
-    bottom:20px;
+    bottom:10px;
 
-    left:50%;
+    left:400px;
 
-    transform:translateX(-50%);
-
-    font-size:55px;
+    font-size:60px;
 
     user-select:none;
+
+    transition:.05s;
+
 }
 
 .planta{
@@ -501,159 +594,200 @@ td{
     font-size:40px;
 
     user-select:none;
+
 }
 
 .tiro{
 
     position:absolute;
 
-    font-size:24px;
+    font-size:30px;
 
-    color:red;
+    z-index:999;
 
     user-select:none;
+
+    pointer-events:none;
+
+}
+
+.hud{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:20px;
+
+    flex-wrap:wrap;
+
+}
+
+.hud-item{
+
+    background:white;
+
+    padding:15px 25px;
+
+    border-radius:15px;
+
+    box-shadow:
+    0 5px 15px rgba(0,0,0,.1);
+
+    font-weight:bold;
+
 }
 
 .game-buttons{
+
     text-align:center;
-    margin-top:25px;
+
 }
 
 .game-buttons button{
 
+    padding:15px 25px;
+
     border:none;
 
-    background:#22c55e;
+    border-radius:12px;
+
+    background:#16a34a;
 
     color:white;
 
-    padding:15px 30px;
-
-    border-radius:15px;
+    font-size:1rem;
 
     cursor:pointer;
 
-    font-size:1rem;
-
-    font-weight:700;
-
-    transition:.3s;
 }
 
 .game-buttons button:hover{
 
-    background:#15803d;
+    background:#14532d;
 
-    transform:translateY(-3px);
-}
-
-.instrucoes{
-
-    margin-top:30px;
-
-    background:white;
-
-    padding:25px;
-
-    border-radius:20px;
-
-    box-shadow:0 10px 20px rgba(0,0,0,.08);
-}
-
-.instrucoes h3{
-    margin-bottom:15px;
-    color:#166534;
 }
 
 /* ===================================
-   RODAPÉ
+   FOOTER
 =================================== */
 
 footer{
 
-    margin-top:60px;
+    text-align:center;
+
+    padding:40px;
 
     background:#14532d;
 
     color:white;
 
-    text-align:center;
+    margin-top:50px;
 
-    padding:40px 20px;
-}
-
-footer h3{
-    margin-bottom:15px;
-}
-
-footer p{
-    margin:8px 0;
 }
 
 /* ===================================
-   RESPONSIVO
+   MODO ESCURO
 =================================== */
 
-@media(max-width:900px){
+body.dark{
+
+    background:#121212;
+
+    color:white;
+
+}
+
+body.dark header{
+
+    background:
+    linear-gradient(
+        135deg,
+        #0f172a,
+        #1e293b
+    );
+
+}
+
+body.dark .menu{
+
+    background:#1e293b;
+
+}
+
+body.dark .menu button{
+
+    background:#334155;
+
+}
+
+body.dark .menu button:hover{
+
+    background:#475569;
+
+}
+
+body.dark .numero,
+body.dark .card,
+body.dark .info-card,
+body.dark .quiz-box,
+body.dark .curiosidade-box,
+body.dark .introducao,
+body.dark .destaque,
+body.dark .futuro-box,
+body.dark .instrucoes,
+body.dark .hud-item{
+
+    background:#1e293b;
+
+    color:white;
+
+}
+
+body.dark footer{
+
+    background:#020617;
+
+}
+
+body.dark #gameArea{
+
+    background:
+    linear-gradient(
+        #1e293b,
+        #0f172a
+    );
+
+}
+
+/* ===================================
+   RESPONSIVIDADE
+=================================== */
+
+@media(max-width:768px){
 
     .hero{
-        flex-direction:column;
-    }
 
-    .hero-texto h2{
-        text-align:center;
+        flex-direction:column;
+
     }
 
     .logo-area h1{
-        font-size:2.3rem;
+
+        font-size:2rem;
+
     }
 
-    section h2{
-        font-size:1.8rem;
-    }
-}
+    section{
 
-@media(max-width:700px){
+        padding:30px 5%;
 
-    .menu button{
-        width:100%;
-    }
-
-    .numero,
-    .card,
-    .info-card{
-        width:100%;
-    }
-
-    .simulador-box input{
-        width:100%;
-    }
-
-    #gameArea{
-        height:400px;
     }
 
     #drone{
-        font-size:45px;
-    }
-}
 
-@media(max-width:500px){
+        font-size:50px;
 
-    .hud{
-        flex-direction:column;
-        align-items:center;
     }
 
-    #gameArea{
-        height:350px;
-    }
-
-    .planta{
-        font-size:30px;
-    }
-
-    #drone{
-        font-size:40px;
-    }
 }
